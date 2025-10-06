@@ -1,0 +1,116 @@
+@media print {
+  /* ✅ On n'imprime que le CV */
+  body * {
+    visibility: hidden;
+  }
+
+  main, main * {
+    visibility: visible;
+  }
+
+  main {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 21cm;
+    height: 29.7cm;
+    margin: 0;
+    padding: 1.5cm;
+    background: #ffffff;
+    color: #1a1a1a;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    box-sizing: border-box;
+  }
+
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  /* 🧱 Layout 2 colonnes */
+  .cv-container {
+    display: grid;
+    grid-template-columns: 60% 38%;
+    gap: 2%;
+    height: 100%;
+  }
+
+  /* 🌈 Titres */
+  h1 {
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #2563eb; /* bleu pro */
+    letter-spacing: 1px;
+    margin-bottom: 1cm;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2563eb;
+    margin-bottom: 0.4cm;
+    border-bottom: 2px solid #93c5fd;
+    padding-bottom: 3px;
+  }
+
+  h3 {
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin-bottom: 0.2cm;
+    color: #1e293b;
+  }
+
+  p, li {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: #374151;
+  }
+
+  ul {
+    margin-top: 0.2cm;
+    margin-left: 0.9cm;
+  }
+
+  /* 📦 Box design */
+  .experience, .sidebar section {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-left: 5px solid #3b82f6;
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin-bottom: 0.7cm;
+    box-shadow: 0 2px 6px rgba(59,130,246,0.05);
+    page-break-inside: avoid;
+    transition: all 0.3s ease;
+  }
+
+  /* 🧩 Colonne droite */
+  .sidebar section {
+    border-left: 5px solid #60a5fa;
+    background: #f0f9ff;
+  }
+
+  /* 🧍 Profil & autres */
+  .sidebar ul li {
+    margin-bottom: 5px;
+  }
+
+  /* 🚫 Cache les boutons */
+  .btn-download, a.btn-download, button {
+    display: none !important;
+  }
+
+  /* ⚙️ Ajustements généraux */
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+  }
+
+  /* ✨ Effet pro sans débordement */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
