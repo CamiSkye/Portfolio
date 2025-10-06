@@ -17,33 +17,42 @@ export function ContactPage() {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    const form = e.currentTarget;
-    const data = new FormData(form);
+  const form = e.currentTarget;
+  const data = new FormData(form);
 
-    try {
-      const response = await fetch("/", {
-        method: "POST",
-        body: data,
-      });
-
-      if (response.ok) {
-        setSubmitStatus('success');
-        setFormData({ name: '', email: '', message: '' });
-      } else {
-        throw new Error('Netlify a refusé le formulaire');
-      }
-    } catch (error) {
-      console.error(error);
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus('idle'), 5000);
-    }
+  // Convert FormData en URL-encoded pour Netlify Forms
+  const encode = (data: FormData) => {
+    return Array.from(data.entries())
+      .map(([key, value]) => encodeURIComponent(key) + '=' + encodeURIComponent(String(value)))
+      .join('&');
   };
+
+  try {
+    const response = await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode(data),
+    });
+
+    if (response.ok) {
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+    } else {
+      throw new Error('Netlify a refusé le formulaire');
+    }
+  } catch (error) {
+    console.error(error);
+    setSubmitStatus('error');
+  } finally {
+    setIsSubmitting(false);
+    setTimeout(() => setSubmitStatus('idle'), 5000);
+  }
+};
+
 
   return (
     <section>
