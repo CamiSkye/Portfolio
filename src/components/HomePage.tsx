@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import '/game/tir/index.html';
 import calendarImage from '../assets/skyndar.png';
 import massageImage from '../assets/softrelax.png';
 import shootingGameImage from '../assets/tir.png';
