@@ -28,7 +28,7 @@ export function Footer() {
         flexWrap: 'wrap'
       }}>
         <a
-          href="mailto:clacroix@et.esiea.fr"
+          href="mailto:mlle.lacroixcamille@gmail.com"
           aria-label="Email"
           style={{
             display: 'block',

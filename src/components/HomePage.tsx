@@ -2,7 +2,7 @@ import { useState } from 'react';
 import calendarImage from '../assets/skyndar.png';
 import massageImage from '../assets/softrelax.png';
 import shootingGameImage from '../assets/tir.png';
-import cvPdf from '../assets/cv.pdf';
+import cvPdf from '../assets/CV_Camille_LACROIX.pdf';
 
 interface HomePageProps {
   onPageChange: (page: string) => void;
@@ -66,7 +66,7 @@ const handleDownloadCV = () => {
         <div style={{ maxWidth: '800px', margin: '0 auto', padding: '0 20px' }}>
           <p style={{ fontSize: '1.2rem', lineHeight: '1.6', marginBottom: '30px', textAlign: 'left' }}>
             Curieuse et ambitieuse, je souhaite apprendre et développer mes compétences à travers divers 
-            projets. Sérieuse, curieuse et motivée, je m'investis dans les missions qui me sont confiées 
+            projets. Sérieuse,motivée et créative, je m'investis dans les missions qui me sont confiées 
             pour progresser rapidement et apporter une réelle valeur ajoutée à l'équipe.
           </p>
           
@@ -117,7 +117,7 @@ const handleDownloadCV = () => {
           Mes projets
         </h2>
         <p style={{ textAlign: 'left', maxWidth: '800px', margin: '0 auto 40px', fontSize: '1.1rem', paddingLeft: '20px' }}>
-          Voici plusieurs projets que j'ai codés qui se sont dans des milieux scolaires ou durant mon temps libre. 
+          Voici plusieurs projets que j'ai codé lors de mon apprentisage scolaire ou pendant mon temps libre. 
           N'hésitez pas à cliquer !
         </p>
 

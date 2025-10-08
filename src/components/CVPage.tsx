@@ -1,5 +1,5 @@
 import affichePdf from '../assets/affichesensibilisation.pdf';
-import cvPdf from '../assets/cv.pdf';
+import cvPdf from '../assets/CV_Camille_LACROIX.pdf';
 import "../styles/print.css";
 
 export function CVPage() {
@@ -119,7 +119,7 @@ export function CVPage() {
             {/* Bouton téléchargement CV */}
             <a 
               href={cvPdf}
-              download="cv.pdf" 
+              download="CV_Camille_LACROIX.pdf" 
               className="btn-download"
               style={{ width: '100%', marginTop: '30px', textAlign: 'center', display: 'inline-block' }}
             >
