@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import '/game/tir/index.html';
 import calendarImage from '../assets/skyndar.png';
 import massageImage from '../assets/softrelax.png';
 import shootingGameImage from '../assets/tir.png';
@@ -52,7 +51,7 @@ const handleDownloadCV = () => {
       image: shootingGameImage,
       isGame: true,
       codeUrl: "https://github.com/CamiSkye/Jeu-de-tir",
-      gameUrl: "/game/tir/index.html"
+      gameUrl: `${import.meta.env.BASE_URL}game/tir/index.html`
     }
   ];
 
