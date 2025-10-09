@@ -51,7 +51,7 @@ const handleDownloadCV = () => {
       image: shootingGameImage,
       isGame: true,
       codeUrl: "https://github.com/CamiSkye/Jeu-de-tir",
-      gameUrl: '/game/tir/index.html'
+      gameUrl: `${import.meta.env.BASE_URL}game/tir/index.html`
     }
   ];
 

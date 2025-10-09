@@ -1,10 +1,21 @@
 
   import { defineConfig } from 'vite';
   import react from '@vitejs/plugin-react-swc';
+  import { viteStaticCopy } from 'vite-plugin-static-copy'
   import path from 'path';
 
   export default defineConfig({
-    plugins: [react()],
+    plugins: [
+      react(),
+      viteStaticCopy({
+      targets: [
+        {
+          src: 'game', // ce que tu veux copier
+          dest: ''             // destination dans le dist/
+        }
+      ]
+    })
+    ],
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
       alias: {
