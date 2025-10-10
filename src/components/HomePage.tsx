@@ -96,7 +96,7 @@ const projects: Project[] = [
       category: 'informatique',
       technologies: ['HTML', 'CSS', 'PHP', 'MySQL', 'Feedback', 'Esprit critique'],
       detailsContent: {
-        type: 'text',
+        type: 'mixed',
         content: "Le site a été développé avec une attention particulière portée à l'expérience utilisateur et à l'accessibilité. Il intègre des animations douces, un design responsive pour tous les appareils, et un système de formulaire de contact optimisé. Le design met en avant la sérénité et le professionnalisme de l'entreprise."
       }
     },
@@ -353,7 +353,7 @@ return (
       </section>
 
       {/* Section Projets Informatiques */}
-      <section className="projects-section">
+      <section id = "informatique" className="projects-section">
         <h2 className="section-title">Projets Informatiques</h2>
         <div className="projects-grid">
           {projectsByCategory.informatique.map(renderProjectCard)}
@@ -362,7 +362,7 @@ return (
 
       {/* Section Projets Humains */}
       {projectsByCategory.humaine.length > 0 && (
-        <section className="projects-section">
+        <section id = "communication"className="projects-section">
           <h2 className="section-title">Projets de Communication</h2>
           <div className="projects-grid">
             {projectsByCategory.humaine.map(renderProjectCard)}
@@ -372,8 +372,8 @@ return (
 
       {/* Section Mini Jeux */}
       {projectsByCategory.minijeu.length > 0 && (
-        <section className="projects-section">
-          <h2 className="section-title">Mini Jeux</h2>
+        <section id ="minijeu" className="projects-section">
+          <h2 className="section-title">Mini Jeu</h2>
           <div className="projects-grid">
             {projectsByCategory.minijeu.map(renderProjectCard)}
           </div>
