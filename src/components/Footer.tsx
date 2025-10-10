@@ -21,11 +21,11 @@ export function Footer() {
       </div>
 
       {/* Partie droite - Réseaux sociaux */}
-      <div style={{
+      <div className="footer-right" style={{
         display: 'flex',
         gap: '15px',
         alignItems: 'center',
-        flexWrap: 'wrap'
+        justifyContent: 'center'
       }}>
         <a
           href="mailto:contact@c-lacroix.fr"

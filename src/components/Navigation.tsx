@@ -38,7 +38,7 @@ export function Navigation({ currentPage, onPageChange }: NavigationProps) {
           style={{ cursor: 'pointer' }}
           onClick={() => handlePageChange('accueil')}
         >
-          Camille LACROIX
+          Camille LACROIX - Développeuse Full-Stack
         </h1>
 
         {/* Menu desktop */}

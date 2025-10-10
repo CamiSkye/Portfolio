@@ -65,7 +65,10 @@ export function CVPage() {
             <div className="experience">
               <h3>Bachelor Expert Ingénierie Logicielle</h3>
               <p style={{ color: '#3b82f6', marginBottom: '12px' }}>Septembre 2023 à Aujourd'hui</p>
-              <p style={{ color: '#ccc' }}>Esiea - Ivry-sur-Seine</p>
+              <p style={{ color: '#ccc' }}>Esiea - Ivry-sur-Seine</p><br></br>
+                <ul style={{ listStyleType: 'disc', marginLeft: '20px' }}>
+                <li>Conception et développement logiciel</li>
+                <li>Développement web et bases de données</li></ul>
             </div>
 
             <div className="experience">
@@ -98,7 +101,8 @@ export function CVPage() {
 
             <section>
               <h2>Soft Skills</h2>
-              <ul>                
+              <ul style={{ listStyleType: 'disc', marginLeft: '20px' }}>
+                <li>Méthodologie Agile</li>                
                 <li>Leadership</li>
                 <li>Créativité</li>
                 <li>Sens de l'organisation</li>
