@@ -92,7 +92,7 @@ export function Navigation({ currentPage, onPageChange }: NavigationProps) {
               }}
               style={{ color: '#fff' }}
             >
-              Mini-Jeux
+              Mini-jeu
             </a>
             <a
               href="#"
