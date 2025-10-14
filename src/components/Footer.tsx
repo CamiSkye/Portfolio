@@ -28,7 +28,7 @@ export function Footer() {
         justifyContent: 'center'
       }}>
         <a
-          href="mailto:contact@c-lacroix.fr"
+          href="mailto:lacrcamille@gmail.com"
           aria-label="Email"
           style={{
             display: 'block',

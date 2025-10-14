@@ -9,7 +9,6 @@ export function CVPage() {
         <h1 style={{ 
           textAlign: 'center', 
           marginBottom: '40px',
-          fontFamily: 'Georgia, serif',
           fontSize: '3rem',
           fontWeight: '300',
           letterSpacing: '2px'
