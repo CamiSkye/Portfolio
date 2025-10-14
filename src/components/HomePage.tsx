@@ -1,18 +1,18 @@
 import { useState } from 'react';
 import { ImageWithFallback } from './figma/ImageWithFallback'
 import Me from '../assets/AboutMe.png';
-import calendarImage from '../assets/skyndar.png';
-import massageImage from '../assets/softrelax.png';
-import shootingGameImage from '../assets/tir.png';
-import vss from '../assets/vss.png';
+import calendarImage from '../assets/skyndar.jpg';
+import massageImage from '../assets/softrelax.jpg';
+import shootingGameImage from '../assets/tir.jpg';
+import vss from '../assets/vss.jpg';
 import cvPdf from '../assets/CV_Camille_LACROIX.pdf';
-import AfficheSkyndar from '../assets/AfficheSkyndar.png';
-import Sensibilisation from '../assets/AfficheErinyes.png';
-import Relax from '../assets/AfficheRelax.png'
+import AfficheSkyndar from '../assets/AfficheSkyndar.jpg';
+import Sensibilisation from '../assets/AfficheErinyes.jpg';
+import Relax from '../assets/AfficheRelax.jpg'
 import SkyndarVideo from '../assets/Skyndar_Video.mp4';
-import Form1 from '../assets/formation_1.png'
-import Form2 from '../assets/formation_2.png'
-import Form3 from '../assets/formation_3.png'
+import Form1 from '../assets/formation_1.jpg'
+import Form2 from '../assets/formation_2.jpg'
+import Form3 from '../assets/formation_3.jpg'
 import {
   Dialog,
   DialogContent,

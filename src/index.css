@@ -2123,3 +2123,131 @@ footer {
     transform: translate3d(var(--tw-exit-translate-x, 0), var(--tw-exit-translate-y, 0), 0) scale3d(var(--tw-exit-scale, 1), var(--tw-exit-scale, 1), var(--tw-exit-scale, 1)) rotate(var(--tw-exit-rotate, 0));
   }
 }
+
+
+/* ------------------------- */
+/* Responsive / Media Queries */
+/* ------------------------- */
+
+/* Grand écran (>1200px) */
+@media (min-width: 1200px) {
+  /* Ici, on peut juste s'assurer que les grilles et cartes gardent de l'espace */
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  }
+}
+
+/* Écran moyen / Tablette (768px à 1199px) */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+
+  .about-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .about-image {
+    height: 400px;
+  }
+
+  header, footer {
+    padding: 15px 30px;
+  }
+
+  .nav-links {
+    gap: 20px;
+  }
+}
+
+/* Petit écran / Mobile (max 767px) */
+@media (max-width: 767px) {
+  /* Grilles et cartes */
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .project-card-new {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .project-card-buttons {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* À propos */
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-image {
+    display: none;
+  }
+
+  /* Navigation */
+  header {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .site-name {
+    font-size: 1.2rem;
+  }
+
+  /* Footer */
+  footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    padding: 20px !important;
+  }
+
+  /* Boutons */
+  .btn-code, .btn-play, .btn-download, .btn-back, .project-btn {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 10px 15px;
+  }
+
+  /* Formulaire */
+  .form-card {
+    padding: 20px;
+  }
+
+  .form-card button {
+    padding: 12px 20px;
+    font-size: 16px;
+  }
+}
+
+/* Très petit écran (<500px) */
+@media (max-width: 500px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .project-card-title {
+    font-size: 1.5rem;
+  }
+
+  .cv-container {
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+  }
+
+  .projects-section, .about-section {
+    padding: 30px 15px;
+  }
+}

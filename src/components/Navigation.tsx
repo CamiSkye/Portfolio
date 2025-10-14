@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface NavigationProps {
   currentPage: string;
@@ -7,63 +7,77 @@ interface NavigationProps {
 
 export function Navigation({ currentPage, onPageChange }: NavigationProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   const handlePageChange = (page: string) => {
     onPageChange(page);
     setIsMobileMenuOpen(false);
   };
 
-  // ✅ On ajoute une fonction pour scroller dans la page "Projets"
   const handleScrollToSection = (id: string) => {
     if (currentPage === 'accueil') {
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+      const el = document.getElementById(id);
+      el?.scrollIntoView({ behavior: 'smooth' });
     } else {
-      // Si on n'est pas sur la page "Projets", on y va d'abord
       onPageChange('accueil');
       setTimeout(() => {
-        const element = document.getElementById(id);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
+        const el = document.getElementById(id);
+        el?.scrollIntoView({ behavior: 'smooth' });
       }, 300);
     }
     setIsMobileMenuOpen(false);
   };
 
+  const mobileBtn = {
+    background: 'none',
+    border: 'none',
+    fontSize: '18px',
+    textAlign: 'left' as const,
+    padding: '10px 0',
+    cursor: 'pointer',
+    transition: 'color 0.2s',
+  };
+
   return (
-    <>
-      <header
+    <header
+      style={{
+        padding: '15px 40px',
+        position: 'sticky',
+        top: 0,
+        zIndex: 1000,
+        background: 'rgba(0,0,0,0.6)',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        flexWrap: 'wrap',
+      }}
+    >
+      {/* Logo / Titre à gauche */}
+      <div
         style={{
-          padding: '15px 40px',
-          position: 'sticky',
-          top: 0,
-          zIndex: 1000,
-          background: 'rgba(0,0,0,0.5)',
           display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          flexWrap: 'wrap',
+          flexDirection: isMobile ? 'column' : 'row',
+          alignItems: isMobile ? 'flex-start' : 'center',
+          gap: isMobile ? '4px' : '0',
+          cursor: 'pointer',
+          color: 'white',
         }}
       >
-        {/* Logo/Nom */}
-        <h1
-          className="site-name"
-          style={{ cursor: 'pointer', color: 'white' }}
-          onClick={() => handlePageChange('accueil')}
-        >
-          Camille LACROIX - Développeuse Full-Stack
-        </h1>
+        <span style={{ fontSize: '20px', fontWeight: 600 }}>Camille LACROIX - Développeuse Full-Stack</span>
+      </div>
 
-        {/* Menu desktop */}
-        <div style={{ display: window.innerWidth >= 768 ? 'block' : 'none' }}>
-          <div className="nav-links" style={{ display: 'flex', gap: '24px' }}>
+      {/* Menu desktop à droite */}
+      {!isMobile && (
+        <nav>
+          <div style={{ display: 'flex', gap: '24px' }}>
             <a
               href="#informatique"
               onClick={(e) => {
@@ -92,7 +106,7 @@ export function Navigation({ currentPage, onPageChange }: NavigationProps) {
               }}
               style={{ color: '#fff' }}
             >
-              Mini-jeu
+              Mini-Jeu
             </a>
             <a
               href="#"
@@ -115,48 +129,57 @@ export function Navigation({ currentPage, onPageChange }: NavigationProps) {
               Contact
             </a>
           </div>
-        </div>
+        </nav>
+      )}
 
-        {/* Bouton hamburger mobile */}
-        <div style={{ display: window.innerWidth < 768 ? 'block' : 'none' }}>
-          <button
-            onClick={toggleMobileMenu}
-            style={{
-              background: 'none',
-              border: 'none',
-              color: 'white',
-              fontSize: '24px',
-              cursor: 'pointer',
-              padding: '8px',
-            }}
-          >
-            {isMobileMenuOpen ? '✕' : '☰'}
+      {/* Hamburger mobile à droite */}
+      {isMobile && (
+        <button
+          onClick={toggleMobileMenu}
+          style={{
+            background: 'none',
+            border: 'none',
+            color: 'white',
+            fontSize: '28px',
+            cursor: 'pointer',
+          }}
+        >
+          {isMobileMenuOpen ? '✕' : '☰'}
+        </button>
+      )}
+
+      {/* Menu mobile en dessous du header */}
+      {isMobileMenuOpen && (
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '12px',
+            width: '100%',
+            marginTop: '16px',
+            background: 'rgba(0,0,0,0.95)',
+            borderRadius: '10px',
+            padding: '16px',
+            border: '1px solid rgba(255,255,255,0.2)',
+          }}
+        >
+          <button onClick={() => handleScrollToSection('informatique')} style={mobileBtn}>
+            Projets Info
+          </button>
+          <button onClick={() => handleScrollToSection('communication')} style={mobileBtn}>
+            Communication
+          </button>
+          <button onClick={() => handleScrollToSection('minijeu')} style={mobileBtn}>
+            Mini-Jeu
+          </button>
+          <button onClick={() => handlePageChange('cv')} style={mobileBtn}>
+            CV
+          </button>
+          <button onClick={() => handlePageChange('contact')} style={mobileBtn}>
+            Contact
           </button>
         </div>
-
-        {/* Menu mobile */}
-        {isMobileMenuOpen && (
-          <div
-            style={{
-              display: 'block',
-              width: '100%',
-              marginTop: '16px',
-              background: 'rgba(0,0,0,0.9)',
-              borderRadius: '8px',
-              padding: '16px',
-              border: '1px solid rgba(255,255,255,0.2)',
-            }}
-          >
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              <button onClick={() => handleScrollToSection('informatique')} style={mobileBtn}>Projets Info</button>
-              <button onClick={() => handleScrollToSection('communication')} style={mobileBtn}>Communication</button>
-              <button onClick={() => handleScrollToSection('minijeu')} style={mobileBtn}>Mini-Jeux</button>
-              <button onClick={() => handlePageChange('cv')} style={mobileBtn}>CV</button>
-              <button onClick={() => handlePageChange('contact')} style={mobileBtn}>Contact</button>
-            </div>
-          </div>
-        )}
-      </header>
-    </>
+      )}
+    </header>
   );
 }

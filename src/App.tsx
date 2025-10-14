@@ -44,28 +44,28 @@ export default function App() {
         <Navigation currentPage={currentPage} onPageChange={setCurrentPage} />
         
         {/* Bouton retour hors du header - fixe en haut */}
-        {currentPage !== 'accueil' && (
-          <div 
-            className="back-button-container"
-            style={{ 
-              position: 'fixed',
-              top: '80px',
-              left: '20px',
-              zIndex: 50
+      {currentPage !== 'accueil' && (
+        <div
+          className="back-button-container"
+          style={{
+            position: 'sticky',
+            top: '80px', // hauteur du header pour que le bouton reste juste en dessous
+            marginLeft: '20px',
+            zIndex: 50,
+          }}
+        >
+          <button
+            onClick={handleBackClick}
+            className="btn-back"
+            style={{
+              fontSize: '16px',
+              padding: '10px 25px',
             }}
           >
-            <button 
-              onClick={handleBackClick}
-              className="btn-back"
-              style={{ 
-                fontSize: '16px',
-                padding: '10px 25px'
-              }}
-            >
-              ← Retour
-            </button>
-          </div>
-        )}
+            ← Retour
+          </button>
+        </div>
+      )}
         
         <main style={{ position: 'relative', zIndex: 10 }}>
           {renderPage()}
