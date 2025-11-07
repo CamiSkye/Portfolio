@@ -20,7 +20,7 @@ export function Footer() {
         </p>
       </div>
 
-      {/* Partie droite - Réseaux sociaux */}
+      {/* Partie droite */}
       <div className="footer-right" style={{
         display: 'flex',
         gap: '15px',

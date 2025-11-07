@@ -72,7 +72,7 @@ const projects: Project[] = [
       id: 1,
       title: "Skyndar",
       shortDescription: "Logiciel de gestion de rendez-vous",
-      fullDescription: "Skyndar est une application complète de prise de rendez-vous développée en C# et WPF. Les utilisateurs choisissent un créneau disponible, en présentiel, visio ou par téléphone via un site web. L'administrateur, via un logiciel, gère ses disponibilités, reçoit les réservations sur sa boîte mail, peut ajouter, modifier ou supprimer des prestations. Il peut tout contrôler.",
+      fullDescription: <p>SkynDar est un logiciel que j’ai développé pour une entreprise, avec une application administrateur en C# / WPF et un site web côté client en PHP / JavaScript. L’objectif était de créer un outil complet et intuitif pour gérer les rendez-vous, côté utilisateur et côté équipe administrative.<br /><br />J’ai conçu l’interface administrateur en MVVM, permettant de gérer les prestations et l’historique client en temps réel, avec mise à jour automatique de la base de données. Côté client, j’ai participé au parcours utilisateur, de la réservation jusqu’à la confirmation, avec une mini-carte et l’envoi automatique de mails. Le module est intégré directement au site via une iframe pour une expérience fluide. <br /><br /> Ce projet m’a permis de combiner développement back-end et front-end, UX/UI et gestion de bases de données, tout en répondant à un besoin réel d’entreprise.</p>,
       image: calendarImage,
       poster: AfficheSkyndar,
       codeUrl: "https://github.com/CamiSkye/skyndar",
@@ -89,7 +89,7 @@ const projects: Project[] = [
       id: 2,
       title: "Soft Relax",
       shortDescription: "Site vitrine pour entreprise de bien-être",
-      fullDescription: "Soft Relax est un site web professionnel développé pour une entreprise spécialisée dans les massages et le bien-être. Il présente l'ensemble des services proposés, permet aux clients de prendre contact facilement via un formulaire intégré, et offre une expérience visuelle apaisante en accord avec l'identité de l'entreprise.",
+      fullDescription: <p>Soft Relax est un site web professionnel développé pour une entreprise spécialisée dans les massages et le bien-être. Il présente l'ensemble des services proposés, permet aux clients de prendre contact facilement via un formulaire intégré, et offre une expérience visuelle apaisante en accord avec l'identité de l'entreprise. <br /><br /> Chaque utilisateur pouvait créer son compte pour réserver un rendez-vous, tandis que l’administratrice disposait également de son compte pour gérer le contenu du site et apporter ses propres modifications si nécessaire. <br /> <br/> En tant que cheffe de projet, j’ai été en charge de la relation avec le client, de la création des maquettes, de la relecture du code, ainsi que du développement de la partie administration et de la page prestations. J’ai également mis en place le système de confirmation de rendez-vous par e-mail, garantissant une communication fluide entre le client et l’entreprise.</p>,
       image: massageImage,
       poster: Relax,
       codeUrl: "https://github.com/CamiSkye/SoftRelax",
@@ -105,7 +105,12 @@ const projects: Project[] = [
       id: 4,
       title: "Les Erinyes",
       shortDescription: "Violences Sexistes et Sexuelles",
-      fullDescription: "Le projet VSS consistait en une formation de sensibilisation visant à mieux comprendre les enjeux et impacts des VSS. Dans ce cadre, nous avons réalisé un état des lieux détaillé, rassemblant chiffres, statistiques et conséquences liées au sujet, afin de donner une vision claire et complète. Parallèlement, nous avons développé des supports de communication variés, notamment de nombreuses affiches, destinées à sensibiliser un large public et à diffuser les informations de manière accessible et percutante. Ce projet a ainsi combiné analyse, création et diffusion pour maximiser l’impact de la sensibilisation.",
+      fullDescription: <p>Ce semestre, nous avons travaillé sur un projet profondément humain et porteur de sens : la création d’une formation de sensibilisation aux violences sexistes et sexuelles, dans le cadre d’une démarche RSE.
+        En tant que cheffe de projet, j’ai dirigé une équipe investie et curieuse, tout en assurant la relation, la coordination et la cohérence globale du projet.<br /><br />
+        Nous avons mené une recherche approfondie (lectures, témoignages, lois, études) pour comprendre ce sujet complexe et le traiter avec justesse.
+        Notre objectif : ne pas seulement informer, mais sensibiliser et susciter le dialogue au sein de notre établissement. <br/><br/>
+        Le résultat : une formation d’une heure accompagnée d’une affiche percutante, fruit de nombreux essais pour trouver le ton juste — ni trop dur, ni trop lisse.
+        Cette initiative a eu un véritable impact, et notre travail est aujourd’hui en cours d’évolution vers une version e-learning pour toucher un public plus large</p>,
       image: vss,
       poster: Sensibilisation,
       codeUrl: "",
@@ -125,7 +130,7 @@ const projects: Project[] = [
       id: 3,
       title: "Jeu de tir",
       shortDescription: "Jeu de tir 2D arcade",
-      fullDescription: "Un jeu de tir en 2D développé en C# avec une interface graphique en JavaScript et CSS. Le joueur doit affronter des vagues d'ennemis avec un système de score, de power-ups, et différents niveaux de difficulté. Le jeu propose des graphismes rétro et une jouabilité dynamique.",
+      fullDescription: "Un jeu de tir en 2D développé en JavaScript avec une interface graphique en CSS. Le joueur doit affronter des vagues d'ennemis (les couronnes) avec un système de score. Le jeu propose des graphismes rétro et une jouabilité dynamique.",
       image: shootingGameImage,
       poster: "https://images.unsplash.com/photo-1745223676002-b881b2a19089?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx2aWRlbyUyMGdhbWUlMjByZXRybyUyMHBvc3RlcnxlbnwxfHx8fDE3NjAwMDE3NjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       codeUrl: "https://github.com/CamiSkye/Jeu-de-tir",

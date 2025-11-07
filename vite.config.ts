@@ -10,8 +10,8 @@
       viteStaticCopy({
       targets: [
         {
-          src: 'game', // ce que tu veux copier
-          dest: ''             // destination dans le dist/
+          src: 'game', 
+          dest: ''           
         }
       ]
     })
