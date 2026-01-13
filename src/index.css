@@ -199,7 +199,6 @@
   }
 
   img, svg, video, canvas, audio, iframe, embed, object {
-    vertical-align: middle;
     display: block;
   }
 
@@ -1491,7 +1490,7 @@ footer {
   border-radius: 20px;
   padding: 6px 14px;
   font-size: .8rem;
-  font-weight: 500;
+  font-weight: normal !important;
   transition: all .3s;
 }
 
@@ -1619,10 +1618,10 @@ footer {
 }
 
 .section-title {
-  fontSize: 2.5rem;
-  fontWeight: bold;
-  marginBottom: 40px;
-  textAlign: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-align: center;
   background: linear-gradient(135deg, #fff, #a0a0ff);
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -1680,9 +1679,9 @@ footer {
 }
 
 .project-card-title {
-  fontSize: 1.8rem;
-  fontWeight: bold;
-  marginBottom: 12px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 12px;
   color: #fff;
   background: linear-gradient(135deg, #fff, #c7d2fe);
   -webkit-text-fill-color: transparent;
@@ -1690,22 +1689,22 @@ footer {
 }
 
 .project-card-short-desc {
-  fontSize: 1.1rem;
+  font-size: 1.1rem;
   color: #a5b4fc;
-  marginBottom: 15px;
-  fontWeight: 600;
+  margin-bottom: 15px;
+  font-weight: 600;
 }
 
 .project-card-full-desc {
-  fontSize: 1rem;
+  font-size: 1rem;
   color: #cbd5e1;
-  lineHeight: 1.7;
-  marginBottom: 20px;
+  line-height: 1.7;
+  margin-bottom: 20px;
   flex-grow: 1;
 }
 
 .project-card-tech {
-  marginBottom: 25px;
+  margin-bottom: 25px;
   border-top: 1px solid #ffffff1a;
   flex-wrap: wrap;
   gap: 8px;
@@ -1714,9 +1713,9 @@ footer {
 }
 
 .tech-badge {
-  fontSize: .85rem;
+  font-size: .85rem;
   color: #e0e7ff;
-  fontWeight: 600;
+  font-weight: 600;
   background: linear-gradient(135deg, #3b82f64d, #8b5cf64d);
   border: 1px solid #8b5cf680;
   border-radius: 20px;
@@ -1730,9 +1729,9 @@ footer {
 }
 
 .tech-badge-large {
-  fontSize: .95rem;
+  font-size: .95rem;
   color: #e0e7ff;
-  fontWeight: 600;
+  font-weight: 600;
   background: linear-gradient(135deg, #3b82f666, #8b5cf666);
   border: 1px solid #8b5cf699;
   border-radius: 24px;
@@ -1746,8 +1745,8 @@ footer {
 }
 
 .project-btn {
-  fontSize: .95rem;
-  fontWeight: 700;
+  font-size: .95rem;
+  font-weight: 700;
   cursor: pointer;
   color: #fff;
   border: none;
@@ -1831,11 +1830,11 @@ footer {
 
 @media (width <= 500px) {
   .section-title {
-    fontSize: 2rem;
+    font-size: 2rem;
   }
 
   .project-card-title {
-    fontSize: 1.5rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -2250,4 +2249,21 @@ footer {
   .projects-section, .about-section {
     padding: 30px 15px;
   }
+}
+
+.project-btn-description {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.4); /* BORDURE CLAIRE */
+  color: #fff;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.project-btn-description:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.8);
+  transform: scale(1.05);
 }

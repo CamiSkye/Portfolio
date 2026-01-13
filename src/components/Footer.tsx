@@ -16,7 +16,7 @@ export function Footer() {
       {/* Partie gauche */}
       <div className="footer-left">
         <p style={{ margin: 0, color: '#ccc' }}>
-          © {currentYear} Camille LACROIX - Développeuse Full-Stack
+          © {currentYear} Camille LACROIX - Développeuse Full-Stack - Tous droits réservés
         </p>
       </div>
 

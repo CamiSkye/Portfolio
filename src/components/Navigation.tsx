@@ -64,14 +64,13 @@ export function Navigation({ currentPage, onPageChange }: NavigationProps) {
       <div
         style={{
           display: 'flex',
-          flexDirection: isMobile ? 'column' : 'row',
-          alignItems: isMobile ? 'flex-start' : 'center',
-          gap: isMobile ? '4px' : '0',
+          alignItems: 'center',
           cursor: 'pointer',
           color: 'white',
+          whiteSpace: 'nowrap',
         }}
       >
-        <span style={{ fontSize: '20px', fontWeight: 600 }}>Camille LACROIX - Développeuse Full-Stack</span>
+        <span style={{ fontSize: '20px', fontWeight: 600 }}>CL - Développeuse Full-Stack</span>
       </div>
 
       {/* Menu desktop à droite */}

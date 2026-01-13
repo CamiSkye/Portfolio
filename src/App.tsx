@@ -42,7 +42,6 @@ export default function App() {
       <div style={{ minHeight: '100vh', opacity: isLoading ? 0 : 1, transition: 'opacity 0.5s ease' }}>
         <AnimatedBackground />
         <Navigation currentPage={currentPage} onPageChange={setCurrentPage} />
-        
         {/* Bouton retour hors du header - fixe en haut */}
       {currentPage !== 'accueil' && (
         <div

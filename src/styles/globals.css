@@ -1173,10 +1173,10 @@ footer {
 }
 
 .section-title {
-  fontSize: 2.5rem;
-  fontWeight: bold;
-  marginBottom: 40px;
-  textAlign: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-align: center;
   background: linear-gradient(135deg, #fff, #a0a0ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1184,13 +1184,24 @@ footer {
 }
 
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 40px;
+  display: flex;              /* ligne horizontale au lieu de grid */
+  gap: 40px;                  /* espace entre les cartes */
   padding: 20px 0;
+  overflow-x: auto;           /* scroll horizontal */
+  scroll-behavior: smooth;    /* scroll fluide */
+}
+
+.projects-grid::-webkit-scrollbar {
+  height: 8px;
+}
+
+.projects-grid::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 116, 255, 0.3);
+  border-radius: 4px;
 }
 
 .project-card-new {
+  flex: 0 0 400px;            /* largeur fixe de chaque carte */
   background: linear-gradient(135deg, rgba(30, 58, 138, 0.3), rgba(17, 24, 39, 0.5));
   border-radius: 20px;
   overflow: hidden;
@@ -1207,6 +1218,7 @@ footer {
   box-shadow: 0 12px 48px rgba(100, 116, 255, 0.4);
   border-color: rgba(100, 116, 255, 0.6);
 }
+
 
 .project-card-image {
   width: 100%;
@@ -1234,9 +1246,9 @@ footer {
 }
 
 .project-card-title {
-  fontSize: 1.8rem;
-  fontWeight: bold;
-  marginBottom: 12px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 12px;
   color: #fff;
   background: linear-gradient(135deg, #fff, #c7d2fe);
   -webkit-background-clip: text;
@@ -1245,17 +1257,17 @@ footer {
 }
 
 .project-card-short-desc {
-  fontSize: 1.1rem;
+  font-size: 1.1rem;
   color: #a5b4fc;
-  marginBottom: 15px;
-  fontWeight: 600;
+  margin-bottom: 15px;
+  font-weight: 600;
 }
 
 .project-card-full-desc {
-  fontSize: 1rem;
+  font-size: 1rem;
   color: #cbd5e1;
-  lineHeight: 1.7;
-  marginBottom: 20px;
+  line-height: 1.7;
+  margin-bottom: 20px;
   flex-grow: 1;
 }
 
@@ -1263,7 +1275,7 @@ footer {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  marginBottom: 25px;
+  margin-bottom: 25px;
   padding-top: 15px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -1273,9 +1285,9 @@ footer {
   background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(139, 92, 246, 0.3));
   border: 1px solid rgba(139, 92, 246, 0.5);
   border-radius: 20px;
-  fontSize: 0.85rem;
+  font-size: 0.85rem;
   color: #e0e7ff;
-  fontWeight: 600;
+  font-weight: 600;
   transition: all 0.3s ease;
 }
 
@@ -1289,9 +1301,9 @@ footer {
   background: linear-gradient(135deg, rgba(59, 130, 246, 0.4), rgba(139, 92, 246, 0.4));
   border: 1px solid rgba(139, 92, 246, 0.6);
   border-radius: 24px;
-  fontSize: 0.95rem;
+  font-size: 0.95rem;
   color: #e0e7ff;
-  fontWeight: 600;
+  font-weight: 600;
 }
 
 .project-card-buttons {
@@ -1307,8 +1319,8 @@ footer {
   gap: 8px;
   padding: 12px 16px;
   border-radius: 10px;
-  fontSize: 0.95rem;
-  fontWeight: 700;
+  font-size: 0.95rem;
+  font-weight: 700;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -1391,10 +1403,11 @@ footer {
 
 @media (max-width: 500px) {
   .section-title {
-    fontSize: 2rem;
+    font-size: 2rem;
   }
   
   .project-card-title {
-    fontSize: 1.5rem;
+    font-size: 1.5rem;
   }
 }
+

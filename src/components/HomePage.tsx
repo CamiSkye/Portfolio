@@ -1,5 +1,6 @@
-import { useState } from 'react';
-import { ImageWithFallback } from './figma/ImageWithFallback'
+import { useState, ReactNode } from 'react';
+import { ImageWithFallback } from './figma/ImageWithFallback';
+import "../styles/GalaxyTitle.css";
 import Me from '../assets/AboutMe.png';
 import calendarImage from '../assets/skyndar.jpg';
 import massageImage from '../assets/softrelax.jpg';
@@ -8,40 +9,59 @@ import vss from '../assets/vss.jpg';
 import cvPdf from '../assets/CV_Camille_LACROIX.pdf';
 import AfficheSkyndar from '../assets/AfficheSkyndar.jpg';
 import Sensibilisation from '../assets/AfficheErinyes.jpg';
-import Relax from '../assets/AfficheRelax.jpg'
+import Relax from '../assets/AfficheRelax.jpg';
 import SkyndarVideo from '../assets/Skyndar_Video.mp4';
-import Form1 from '../assets/formation_1.jpg'
-import Form2 from '../assets/formation_2.jpg'
-import Form3 from '../assets/formation_3.jpg'
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from './ui/dialog';
+import Form1 from '../assets/formation_1.jpg';
+import Form2 from '../assets/formation_2.jpg';
+import Form3 from '../assets/formation_3.jpg';
+import logo from '../assets/logo.png';
+import Folio1 from '../assets/folio_1.jpg';
+import Folio2 from '../assets/folio_2.jpg';
+import Folio3 from '../assets/folio_3.jpg';
+import erinyes from '../assets/Logo_Erinyes.png';
+import nemesis from '../assets/nemesis.png';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle,} from './ui/dialog';
 import { ExternalLink, Github, Image as ImageIcon, Eye } from 'lucide-react';
+import { Carousel3D } from './Carousel3D';
 
 interface HomePageProps {
   onPageChange: (page: string) => void;
 }
 
+type MediaItem = {
+  type: 'image' | 'video';
+  src: string;
+};
+
+type TextContent = {
+  type: 'text';
+  content: string;
+};
+
+type MixedContent = {
+  type: 'mixed';
+  content: MediaItem[];
+};
+
+type URLContent = {
+  type: 'url';
+  content: string;
+};
+
+
 interface Project {
   id: number;
   title: string;
   shortDescription: string;
-  fullDescription: string;
+  fullDescription: ReactNode;
   image: string;
   poster: string;
   codeUrl: string;
   gameUrl?: string;
   category: 'informatique' | 'humaine' | 'minijeu';
   technologies: string[];
-  detailsContent: {
-    type: 'mixed';
-    content: Array <{type: 'image'| 'video'; src: string}>;
-  };
-}
+  detailsContent: MixedContent | TextContent | URLContent;
+  }
 
 export function HomePage({ onPageChange }: HomePageProps) {
   const [gameUrl, setGameUrl] = useState<string | null>(null);
@@ -49,10 +69,14 @@ export function HomePage({ onPageChange }: HomePageProps) {
   const [showPoster, setShowPoster] = useState(false);
   const [currentPoster, setCurrentPoster] = useState('');
   const [currentMediaIndex, setCurrentMediaIndex] = useState(0);
+  const [showDescriptionModal, setShowDescriptionModal] = useState<boolean>(false);
+  const [descriptionProject, setDescriptionProject] = useState<Project | null>(null);
+
+  const isMobile = window.innerWidth <= 768;
 
 const handleDownloadCV = () => {
   const link = document.createElement('a');
-  link.href = cvPdf;             // ← URL fournie par Vite
+  link.href = cvPdf;          
   link.download = 'cv.pdf';
   document.body.appendChild(link);
   link.click();
@@ -69,10 +93,25 @@ const handleDownloadCV = () => {
 const projects: Project[] = [
     // Projets informatiques
     {
+      id: 5,
+      title: "Les Erinyes",
+      shortDescription: "Site de sensibilisation contre les VSS",
+      fullDescription: <p>Erinyes est un site de sensibilisation que j’ai conçu et développé pour lutter contre les violences sexistes et sexuelles (VSS), en rendant accessibles des ressources pédagogiques et des outils concrets pour tous. L’objectif était de créer une plateforme claire, engageante et informative permettant de comprendre l’ampleur des violences, de savoir comment agir en tant que témoin ou victime, et d’accéder rapidement aux aides disponibles.<br /><br />J’ai structuré le contenu autour des chiffres clés récents sur les VSS, accompagnés d’explications compréhensibles pour un large public. Le site inclut également mes supports de formation e-learning, un violentomètre interactif pour aider à repérer les différents degrés de violence, et plusieurs affiches de sensibilisation visuelles que j’ai créées moi-même pour faciliter la prévention. J’y ai aussi intégré une rubrique pratique listant les numéros d’urgence, les structures d’accompagnement et les associations à contacter pour obtenir de l’aide ou orienter quelqu’un dans le besoin.<br /><br />Ce projet m’a permis de combiner design visuel, pédagogie et développement web pour proposer une plateforme utile et accessible, tout en contribuant à une cause sociale majeure qui concerne et affecte un grand nombre de personnes chaque année.</p>,
+      image: erinyes,
+      poster: Sensibilisation,
+      codeUrl: "https://github.com/CamiSkye/erinyes",
+      category: 'informatique',
+      technologies: ['HTML', 'CSS', 'React', 'Autonomie', 'Créativité', "FeedBack", "Humain"],
+      detailsContent: {
+        type: 'url',
+        content: "https://erinyes.fr"
+      }
+    },
+    {
       id: 1,
       title: "Skyndar",
       shortDescription: "Logiciel de gestion de rendez-vous",
-      fullDescription: <p>SkynDar est un logiciel que j’ai développé pour une entreprise, avec une application administrateur en C# / WPF et un site web côté client en PHP / JavaScript. L’objectif était de créer un outil complet et intuitif pour gérer les rendez-vous, côté utilisateur et côté équipe administrative.<br /><br />J’ai conçu l’interface administrateur en MVVM, permettant de gérer les prestations et l’historique client en temps réel, avec mise à jour automatique de la base de données. Côté client, j’ai participé au parcours utilisateur, de la réservation jusqu’à la confirmation, avec une mini-carte et l’envoi automatique de mails. Le module est intégré directement au site via une iframe pour une expérience fluide. <br /><br /> Ce projet m’a permis de combiner développement back-end et front-end, UX/UI et gestion de bases de données, tout en répondant à un besoin réel d’entreprise.</p>,
+      fullDescription: <p>Skyndar est un logiciel que j’ai développé pour une entreprise, avec une application administrateur en C# / WPF et un site web côté client en PHP / JavaScript. L’objectif était de créer un outil complet et intuitif pour gérer les rendez-vous, côté utilisateur et côté équipe administrative.<br /><br />J’ai conçu l’interface administrateur en MVVM, permettant de gérer les prestations et l’historique client en temps réel, avec mise à jour automatique de la base de données. Côté client, j’ai participé au parcours utilisateur, de la réservation jusqu’à la confirmation, avec une mini-carte et l’envoi automatique de mails. Le module est intégré directement au site via une iframe pour une expérience fluide. <br /><br /> Ce projet m’a permis de combiner développement back-end et front-end, UX/UI et gestion de bases de données, tout en répondant à un besoin réel d’entreprise.</p>,
       image: calendarImage,
       poster: AfficheSkyndar,
       codeUrl: "https://github.com/CamiSkye/skyndar",
@@ -96,15 +135,36 @@ const projects: Project[] = [
       category: 'informatique',
       technologies: ['HTML', 'CSS', 'PHP', 'MySQL', 'Feedback', 'Esprit critique'],
       detailsContent: {
-        type: 'mixed',
+        type: 'text',
         content: "Le site a été développé avec une attention particulière portée à l'expérience utilisateur et à l'accessibilité. Il intègre des animations douces, un design responsive pour tous les appareils, et un système de formulaire de contact optimisé. Le design met en avant la sérénité et le professionnalisme de l'entreprise."
       }
     },
+
+    {
+      id: 6,
+      title: "PortFolio",
+      shortDescription: "Site vitrine pour montrer mes différents projets",
+      fullDescription: <p>Mon portfolio est une vitrine de mes compétences en développement web et en design interactif. Il présente l’ensemble de mes projets personnels et professionnels, illustrant ma maîtrise de technologies telles que <strong>React, C#, WPF, PHP/MySQL</strong> et mon sens du design moderne et intuitif. <br /><br /> Chaque projet est décrit en détail, avec des démonstrations interactives et des captures d’écran, permettant aux visiteurs de comprendre le fonctionnement et les choix techniques derrière chaque réalisation. <br /><br /> En tant que développeuse et cheffe de projet de mon propre portfolio, j’ai conçu l’architecture, créé les maquettes, développé les fonctionnalités interactives, et intégré des animations pour offrir une expérience utilisateur fluide et engageante. Le portfolio reflète ma créativité, ma rigueur technique et mon goût pour les interfaces soignées et immersives.</p>,
+      image: logo,
+      poster: Relax,
+      codeUrl: "https://github.com/CamiSkye/Portfolio",
+      category: 'informatique',
+      technologies: ['HTML', 'CSS', 'JS', 'React', 'Autonomie', 'Créativité'],
+      detailsContent: {
+        type: 'mixed',
+        content: [
+              { type: 'image', src: Folio1 },
+              { type: 'image', src: Folio2 },
+              { type: 'image', src: Folio3 },
+        ]
+      }
+    },
+
     // Projet humain
     {
       id: 4,
-      title: "Les Erinyes",
-      shortDescription: "Violences Sexistes et Sexuelles",
+      title: "Nemesis",
+      shortDescription: "Violences Sexistes et Sexuelles, partie 1",
       fullDescription: <p>Ce semestre, nous avons travaillé sur un projet profondément humain et porteur de sens : la création d’une formation de sensibilisation aux violences sexistes et sexuelles, dans le cadre d’une démarche RSE.
         En tant que cheffe de projet, j’ai dirigé une équipe investie et curieuse, tout en assurant la relation, la coordination et la cohérence globale du projet.<br /><br />
         Nous avons mené une recherche approfondie (lectures, témoignages, lois, études) pour comprendre ce sujet complexe et le traiter avec justesse.
@@ -112,10 +172,29 @@ const projects: Project[] = [
         Le résultat : une formation d’une heure accompagnée d’une affiche percutante, fruit de nombreux essais pour trouver le ton juste — ni trop dur, ni trop lisse.
         Cette initiative a eu un véritable impact, et notre travail est aujourd’hui en cours d’évolution vers une version e-learning pour toucher un public plus large</p>,
       image: vss,
-      poster: Sensibilisation,
+      poster: nemesis,
       codeUrl: "",
       category: 'humaine',
       technologies: [ 'Leadership', 'Communication', 'Sens du collectif', 'Créativité', 'Assertivité'],
+      detailsContent: {
+        type: 'mixed',
+        content: [
+              { type: 'image', src: Form1 },
+              { type: 'image', src: Form2 },
+              { type: 'image', src: Form3 },
+        ]
+      }
+    },
+    {
+      id: 7,
+      title: "Les Erinyes",
+      shortDescription: "Violences Sexistes et Sexuelles, partie 2",
+      fullDescription: <p>Dans la continuité de cette première phase, nous avons développé deux parcours e-learning complets, chacun composé de cinq modules progressifs. Le premier, la formation initiale, reprend les bases : définitions essentielles, données clés, cadres juridiques et signaux d’alerte — tout ce qu’il faut pour comprendre les VSS et adopter les bons réflexes. Le second, plus spécialisé, approfondit le sujet dans le milieu professionnel : harcèlement au travail, rapports hiérarchiques, culture d’entreprise et devoirs légaux des organisations, afin de mieux outiller les apprenants face à ces situations concrètes.<br /><br /> Au-delà des modules pédagogiques, notre groupe a réalisé une série d’affiches animées diffusées au sein de l’école pour rendre le sujet visible, briser le tabou et maintenir l’attention dans le quotidien. J’ai également conçu un site web de sensibilisation regroupant ressources, outils interactifs et informations pratiques, permettant d’aborder les VSS sous plusieurs formats selon la sensibilité et le rythme de chacun.<br /><br /> Ce chantier m’a permis d’allier recherche, pédagogie, gestion de projet et création numérique, tout en contribuant à un changement tangible au sein de notre établissement et au-delà.</p>,
+      image: erinyes,
+      poster: Sensibilisation,
+      codeUrl: "",
+      category: 'humaine',
+      technologies: [ 'Leadership', 'Sensibilisation', 'Sens du collectif', 'Créativité'],
       detailsContent: {
         type: 'mixed',
         content: [
@@ -136,7 +215,7 @@ const projects: Project[] = [
       codeUrl: "https://github.com/CamiSkye/Jeu-de-tir",
       gameUrl: '../../game/tir/index.html',
       category: 'minijeu',
-      technologies: ['C#', 'JavaScript', 'CSS', 'Canvas API'],
+      technologies: ['HTML', 'JavaScript', 'CSS', 'Canvas API'],
       detailsContent: {
         type: 'text',
         content: "Ce jeu a été développé comme projet personnel pour explorer les mécaniques de jeu et l'animation canvas. Il inclut un système de collision optimisé, des effets de particules, et une bande sonore rétro. Le code est modulaire et facilement extensible pour ajouter de nouveaux ennemis ou power-ups."
@@ -156,6 +235,7 @@ const projects: Project[] = [
   };
 
   const renderProjectCard = (project: Project) => (
+
     <div key={project.id} className="project-card-new">
       <div className="project-card-image">
         <img src={project.image} alt={project.title} />
@@ -164,8 +244,16 @@ const projects: Project[] = [
       <div className="project-card-body">
         <h3 className="project-card-title">{project.title}</h3>
         <p className="project-card-short-desc">{project.shortDescription}</p>
-        <p className="project-card-full-desc">{project.fullDescription}</p>
-        
+        <button
+          onClick={() => {
+            setDescriptionProject(project);
+            setShowDescriptionModal(true);
+          }}
+          className="project-btn project-btn-description"
+        >
+          Description
+        </button>
+
         <div className="project-card-tech">
           {project.technologies.map((tech, index) => (
             <span key={index} className="tech-badge">{tech}</span>
@@ -178,8 +266,12 @@ const projects: Project[] = [
             <>
             <button 
               onClick={() => {
-                setSelectedProject(project);
-                setCurrentMediaIndex(0);
+                if (project.detailsContent.type === 'url') {
+                  window.open(project.detailsContent.content, '_blank'); // redirection
+                } else {
+                  setSelectedProject(project); // modal normal
+                  setCurrentMediaIndex(0);
+                }
               }}
               className="project-btn project-btn-view"
             >
@@ -257,14 +349,9 @@ const projects: Project[] = [
 return (
     <>
       {/* Section À propos de moi */}
-      <section className="about-section">
-        <h1 style={{ 
-          fontSize: '3rem', 
-          fontWeight: 'bold', 
-          textAlign: 'center', 
-          marginBottom: '50px'
-        }}>
-          Camille LACROIX
+        <section className="about-section">
+        <h1 className="title" >
+        Camille LACROIX
         </h1>
         
         <div className="about-content">
@@ -274,7 +361,7 @@ return (
               lineHeight: '1.8', 
               marginBottom: '20px',
               textAlign: 'left'
-            }}>
+            }}><br></br>
               Je suis passionnée par le développement logiciel et le design d’interfaces.
             J’adore transformer des idées en solutions innovantes et intuitives qui facilitent la vie des utilisateurs.
             Sérieuse, audacieuse et toujours avide de défis, je cherche constamment à apprendre et à repousser mes limites à travers des projets variés. Dynamique et engagée, je m’implique pleinement dans chaque mission pour apporter des résultats concrets et créer une vraie valeur pour l’équipe.
@@ -360,17 +447,28 @@ return (
       {/* Section Projets Informatiques */}
       <section id = "informatique" className="projects-section">
         <h2 className="section-title">Projets Informatiques</h2>
-        <div className="projects-grid">
-          {projectsByCategory.informatique.map(renderProjectCard)}
+        <div className="projects-wrapper">
+        {isMobile ? (
+          <div className="projects-grid">
+            {projectsByCategory.informatique.map(renderProjectCard)}
+          </div>
+        ) : (
+          <Carousel3D>
+            {projectsByCategory.informatique.map(renderProjectCard)}
+          </Carousel3D>
+        )}
         </div>
+        
       </section>
 
       {/* Section Projets Humains */}
       {projectsByCategory.humaine.length > 0 && (
         <section id = "communication"className="projects-section">
           <h2 className="section-title">Projets de Communication</h2>
-          <div className="projects-grid">
-            {projectsByCategory.humaine.map(renderProjectCard)}
+          <div className="projects-wrapper">
+            <div className="projects-grid">
+              {projectsByCategory.humaine.map(renderProjectCard)}
+            </div>
           </div>
         </section>
       )}
@@ -379,8 +477,10 @@ return (
       {projectsByCategory.minijeu.length > 0 && (
         <section id ="minijeu" className="projects-section">
           <h2 className="section-title">Mini Jeu</h2>
-          <div className="projects-grid">
-            {projectsByCategory.minijeu.map(renderProjectCard)}
+          <div className="projects-wrapper">
+            <div className="projects-grid">
+              {projectsByCategory.minijeu.map(renderProjectCard)}
+            </div>
           </div>
         </section>
       )}
@@ -451,9 +551,28 @@ return (
         </button>
       </section>
 
-      {/* Dialog pour les détails du projet */}
- <Dialog open={selectedProject !== null} onOpenChange={(open) => !open && setSelectedProject(null)}>
-  <DialogContent className="max-w-3xl">
+    {/* Dialog pour les détails du projet */}
+    <Dialog open={selectedProject !== null} onOpenChange={(open : boolean) => !open && setSelectedProject(null)}>
+      <DialogContent
+      style={{
+          width: '90vw',
+          maxWidth: '1200px',
+          maxHeight: '90vh',
+          overflow: 'auto',
+          borderRadius: '20px',
+
+          /* Glass */
+          background: 'rgba(255, 255, 255, 0.07)',
+          backdropFilter: 'blur(30px)',
+          WebkitBackdropFilter: 'blur(30px)',
+
+          /* Subtle glow */
+          boxShadow: '0 0 30px rgba(255, 255, 255, 0.15)',
+          border: '1px solid rgba(255, 255, 255, 0.15)',
+          padding: '30px',
+        }}
+    >
+        
     <DialogHeader>
       <DialogTitle className="text-2xl">{selectedProject?.title}</DialogTitle>
       <DialogDescription>
@@ -470,8 +589,8 @@ return (
             src={selectedProject.detailsContent.content[currentMediaIndex].src}
             alt={selectedProject.title}
             style={{
-              width: '100%',       // occupe toute la largeur du modal
-              height: 'auto',      // garde les proportions originales
+              width: '100%',       
+              height: 'auto',     
               borderRadius: '12px',
               display: 'block',
               margin: '0 auto'
@@ -541,7 +660,7 @@ return (
                 href={selectedProject.codeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-500 to-pink-500 rounded-lg hover:opacity-80 transition-opacity"
+                className="flex items-center gap-2 px-6 py-3 bg-linear-to-r from-orange-500 to-pink-500 rounded-lg hover:opacity-80 transition-opacity"
               >
                 <Github size={20} />
                 Voir le code
@@ -553,7 +672,7 @@ return (
                 href={selectedProject.gameUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-lg hover:opacity-80 transition-opacity"
+                className="flex items-center gap-2 px-6 py-3 bg-linear-to-r from-cyan-400 to-purple-500 rounded-lg hover:opacity-80 transition-opacity"
               >
                 <ExternalLink size={20} />
                 Jouer
@@ -577,15 +696,76 @@ return (
               src={currentPoster}
               alt="Affiche du projet"
               style={{
-                width: '100%',
-                borderRadius: '12px',
-                maxHeight: '80vh',
-                objectFit: 'contain'
-              }}
+          width: '100%',
+          maxWidth: '1200px',
+          maxHeight: '80vh',
+          objectFit: 'contain',
+          borderRadius: '12px',
+
+          /* Glass */
+          background: 'rgba(255, 255, 255, 0.07)',
+          backdropFilter: 'blur(30px)',
+          WebkitBackdropFilter: 'blur(30px)',
+
+          /* Subtle glow */
+          boxShadow: '0 0 30px rgba(255, 255, 255, 0.15)',
+          border: '1px solid rgba(255, 255, 255, 0.15)',
+          padding: '30px',
+        }}
             />
           </div>
         </DialogContent>
       </Dialog>
-    </>
+
+      {/* Modal Description seule */}
+      <Dialog
+        open={showDescriptionModal}
+        onOpenChange={(open: boolean) => {
+          setShowDescriptionModal(open);
+          if (!open) setDescriptionProject(null);
+        }}
+      >
+        <DialogContent
+          style={{
+          width: '80vw',
+          maxWidth: '900px',
+          maxHeight: '80vh',
+          overflow: 'auto',
+          borderRadius: '20px',
+
+          /* Glass */
+          background: 'rgba(255, 255, 255, 0.07)',
+          backdropFilter: 'blur(30px)',
+          WebkitBackdropFilter: 'blur(30px)',
+
+          /* Subtle glow */
+          boxShadow: '0 0 30px rgba(255, 255, 255, 0.15)',
+          border: '1px solid rgba(255, 255, 255, 0.15)',
+          padding: '30px',
+        }}
+        >
+          <DialogHeader
+          style={{
+            borderBottom: '1px solid rgba(255,255,255,0.15)',
+            paddingBottom: '12px',
+            marginBottom: '20px'
+          }}>
+            <DialogTitle
+              style={{
+                fontSize: '2rem',
+                fontWeight: '700',
+                letterSpacing: '1px',
+                color: '#9ca8ff',
+                WebkitBackgroundClip: 'text'
+              }}>{descriptionProject?.title}</DialogTitle>
+            <DialogDescription>{descriptionProject?.shortDescription}</DialogDescription>
+          </DialogHeader>
+
+          <div style={{ marginTop: '20px', lineHeight: 1.6 }}>
+            {descriptionProject?.fullDescription}
+          </div>
+        </DialogContent>
+      </Dialog>
+    </>   
   );
 }
