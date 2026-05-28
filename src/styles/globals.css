@@ -731,12 +731,22 @@ footer {
   }
   
   .cv-download-btn {
-    padding: 12px 15px !important;
-    font-size: 15px !important;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+  display: inline-block;
+  padding: 10px 24px;
+  border: 1px solid #3b82f6;
+  color: #3b82f6;
+  background: transparent;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.cv-download-btn:hover {
+  background: #3b82f6;
+  color: white;
+}
   
   /* Cacher l'image dans "À propos de moi" sur mobile */
   .about-image {

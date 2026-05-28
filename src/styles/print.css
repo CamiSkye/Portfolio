@@ -1,116 +1,272 @@
+/* ============================================
+   STYLES NORMAUX (hors impression)
+   ============================================ */
+
+/* Cache le composant CVPrint sur le site */
+.cv-print-only {
+  display: none;
+}
+
+/* Boutons téléchargement */
+.btn-download {
+  display: inline-block;
+  padding: 10px 24px;
+  border: 1px solid #3b82f6;
+  color: #3b82f6;
+  background: transparent;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btn-download:hover {
+  background: #3b82f6;
+  color: white;
+}
+
+/* ============================================
+   STYLES IMPRESSION (Ctrl+P)
+   ============================================ */
 @media print {
-  /* ✅ On n'imprime que le CV */
-  body * {
-    visibility: hidden;
-  }
-
-  main, main * {
-    visibility: visible;
-  }
-
-  main {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 21cm;
-    height: 29.7cm;
-    margin: 0;
-    padding: 1.5cm;
-    background: #ffffff;
-    color: #1a1a1a;
-    font-family: 'Inter', 'Segoe UI', sans-serif;
-    box-sizing: border-box;
-  }
 
   @page {
     size: A4;
     margin: 0;
   }
 
-  /* 🧱 Layout 2 colonnes */
-  .cv-container {
-    display: grid;
-    grid-template-columns: 60% 38%;
-    gap: 2%;
-    height: 100%;
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    box-sizing: border-box;
   }
 
-  /* 🌈 Titres */
-  h1 {
-    text-align: center;
-    font-size: 2.4rem;
-    font-weight: 700;
-    color: #2563eb; /* bleu pro */
-    letter-spacing: 1px;
-    margin-bottom: 1cm;
-  }
-
-  h2 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #2563eb;
-    margin-bottom: 0.4cm;
-    border-bottom: 2px solid #93c5fd;
-    padding-bottom: 3px;
-  }
-
-  h3 {
-    font-size: 1.05rem;
-    font-weight: 500;
-    margin-bottom: 0.2cm;
-    color: #1e293b;
-  }
-
-  p, li {
-    font-size: 0.95rem;
-    line-height: 1.4;
-    color: #374151;
-  }
-
-  ul {
-    margin-top: 0.2cm;
-    margin-left: 0.9cm;
-  }
-
-  /* 📦 Box design */
-  .experience, .sidebar section {
-    background: #f8fafc;
-    border: 1px solid #cbd5e1;
-    border-left: 5px solid #3b82f6;
-    border-radius: 10px;
-    padding: 10px 15px;
-    margin-bottom: 0.7cm;
-    box-shadow: 0 2px 6px rgba(59,130,246,0.05);
-    page-break-inside: avoid;
-    transition: all 0.3s ease;
-  }
-
-  /* 🧩 Colonne droite */
-  .sidebar section {
-    border-left: 5px solid #60a5fa;
-    background: #f0f9ff;
-  }
-
-  /* 🧍 Profil & autres */
-  .sidebar ul li {
-    margin-bottom: 5px;
-  }
-
-  /* 🚫 Cache les boutons */
-  .btn-download, a.btn-download, button {
-    display: none !important;
-  }
-
-  /* ⚙️ Ajustements généraux */
   html, body {
     margin: 0 !important;
     padding: 0 !important;
     background: white !important;
   }
 
-  /* ✨ Effet pro sans débordement */
-  * {
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
+  /* Cache tout le portfolio */
+  body * {
+    visibility: hidden;
+  }
+
+  /* Affiche uniquement le composant CVPrint */
+  .cv-print-only,
+  .cv-print-only * {
+    visibility: visible;
+  }
+
+  .cv-print-only {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 21cm;
+    min-height: 29.7cm;
+    background: white;
+    color: #1a1a2e;
+    font-family: 'DM Sans', 'Segoe UI', sans-serif;
+    font-size: 13px;
+  }
+
+  /* ---- HEADER ---- */
+  .cvp-header {
+    background: #1a2744;
+    color: white;
+    padding: 28px 36px;
+    margin-bottom: 0;
+  }
+
+  .cvp-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: white;
+    margin: 0 0 6px 0;
+    border: none;
+  }
+
+  .cvp-name span {
+    color: #3b82f6;
+  }
+
+  .cvp-subtitle {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    font-weight: 300;
+    margin: 0 0 12px 0;
+    line-height: 1.5;
+  }
+
+  .cvp-badge {
+    display: inline-block;
+    background: #3b82f6;
+    color: white;
+    padding: 5px 14px;
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  /* ---- BODY : 2 colonnes ---- */
+  .cvp-body {
+    display: grid;
+    grid-template-columns: 58% 42%;
+    height: calc(29.7cm - 120px);
+  }
+
+  /* ---- COLONNE GAUCHE ---- */
+  .cvp-main {
+    padding: 24px 28px;
+    border-right: 1px solid #e5e7eb;
+  }
+
+  .cvp-intro {
+    font-size: 0.8rem;
+    color: #374151;
+    line-height: 1.6;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .cvp-section-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1a2744;
+    border-bottom: 2px solid #3b82f6;
+    padding-bottom: 4px;
+    margin: 16px 0 10px 0;
+  }
+
+  .cvp-exp {
+    margin-bottom: 12px;
+    page-break-inside: avoid;
+  }
+
+  .cvp-exp-header {
+    font-size: 0.85rem;
+    color: #1a2744;
+    margin-bottom: 2px;
+  }
+
+  .cvp-role {
+    color: #3b82f6;
+    font-weight: 500;
+  }
+
+  .cvp-role-sub {
+    color: #3b82f6;
+    font-size: 0.8rem;
+    margin-bottom: 2px;
+  }
+
+  .cvp-date {
+    color: #6b7280;
+    font-size: 0.75rem;
+    margin-bottom: 6px;
+  }
+
+  .cvp-main ul {
+    padding-left: 14px;
+    margin: 4px 0 6px 0;
+  }
+
+  .cvp-main ul li {
+    font-size: 0.78rem;
+    color: #374151;
+    margin-bottom: 3px;
+    line-height: 1.4;
+  }
+
+  .cvp-tags {
+    font-size: 0.74rem;
+    color: #6b7280;
+    margin-top: 4px;
+  }
+
+  .cvp-tags strong {
+    color: #1a2744;
+  }
+
+  /* ---- COLONNE DROITE ---- */
+  .cvp-sidebar {
+    padding: 24px 22px;
+    background: #f8fafc;
+  }
+
+  .cvp-sidebar-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #1a2744;
+    border-bottom: 2px solid #3b82f6;
+    padding-bottom: 4px;
+    margin: 14px 0 8px 0;
+  }
+
+  .cvp-sidebar-title:first-child {
+    margin-top: 0;
+  }
+
+  .cvp-sidebar-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 8px 0;
+  }
+
+  .cvp-sidebar-list li {
+    font-size: 0.78rem;
+    color: #374151;
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+
+  .cvp-skill-group {
+    margin-bottom: 8px;
+  }
+
+  .cvp-skill-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #1a2744;
+    margin-bottom: 3px;
+  }
+
+  .cvp-skill-value {
+    font-size: 0.78rem;
+    color: #374151;
+  }
+
+  .cvp-tags-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .cvp-tag {
+    background: #e0e7ff;
+    color: #3730a3;
+    font-size: 0.7rem;
+    padding: 2px 7px;
+    border-radius: 20px;
+  }
+
+  .cvp-note {
+    font-size: 0.68rem;
+    color: #9ca3af;
+    margin-top: 3px;
+  }
+
+  /* Cache tout le reste du portfolio */
+  .btn-download,
+  a.btn-download,
+  button {
+    display: none !important;
   }
 }
