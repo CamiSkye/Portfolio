@@ -14,7 +14,7 @@
   },
   "buttons": {
     "view_cv": "View my Resume",
-    "download_cv": "Download my Resume",
+    "download_cv": "Download my Resume (PDF)",
     "contact_me": "Contact me",
     "view": "View",
     "git": "Git",

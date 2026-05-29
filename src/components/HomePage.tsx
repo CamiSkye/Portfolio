@@ -6,7 +6,7 @@ import Me from '../assets/AboutMe.png';
 import cvPdf from '../assets/CV_Camille_LACROIX.pdf';
 import { useIsMobile } from '../hooks/useMediaQuery';
 import { useModal } from '../hooks/useModal';
-import { useProjects } from '../hooks/useProjects';
+import { SOFT_SKILLS, useProjects } from '../hooks/useProjects';
 import '../styles/GalaxyTitle.css';
 import '../styles/homepage.css';
 import type { Project } from '../types/project';
@@ -52,7 +52,10 @@ export function HomePage() {
 
         <div className="project-card-tech">
           {project.technologies.map((tech: string, index: number) => (
-            <span key={index} className="tech-badge">
+            <span
+              key={index}
+              className={`tech-badge ${SOFT_SKILLS.includes(tech) ? 'tech-badge--soft' : 'tech-badge--hard'}`}
+            >
               {tech}
             </span>
           ))}
@@ -82,12 +85,14 @@ export function HomePage() {
               >
                 <Github size={18} /> {tc('buttons.git')}
               </a>
-              <button
-                onClick={() => posterModal.open(project.poster)}
-                className="project-btn project-btn-poster"
-              >
-                <ImageIcon size={18} /> {tc('buttons.poster')}
-              </button>
+              {project.poster && (
+                <button
+                  onClick={() => posterModal.open(project.poster)}
+                  className="project-btn project-btn-poster"
+                >
+                  <ImageIcon size={18} /> {tc('buttons.poster')}
+                </button>
+              )}
             </>
           )}
 
@@ -135,6 +140,7 @@ export function HomePage() {
 
   return (
     <>
+      {/* Section À propos */}
       <section className="about-section">
         <h1 className="title">{t('about.title')}</h1>
         <div className="about-content">
@@ -159,6 +165,7 @@ export function HomePage() {
         </div>
       </section>
 
+      {/* Section Projets Informatiques */}
       <section id="informatique" className="projects-section">
         <h2 className="section-title">{t('sections.dev_projects')}</h2>
         <div className="projects-wrapper">
@@ -172,6 +179,7 @@ export function HomePage() {
         </div>
       </section>
 
+      {/* Section Projets Humains */}
       {projectsByCategory.humaine.length > 0 && (
         <section id="communication" className="projects-section">
           <h2 className="section-title">{t('sections.communication')}</h2>
@@ -181,6 +189,7 @@ export function HomePage() {
         </section>
       )}
 
+      {/* Section Mini Jeux */}
       {projectsByCategory.minijeu.length > 0 && (
         <section id="minijeu" className="projects-section">
           <h2 className="section-title">{t('sections.mini_game')}</h2>
@@ -190,6 +199,7 @@ export function HomePage() {
         </section>
       )}
 
+      {/* Modal du jeu */}
       {gameUrl && (
         <div className="game-modal-overlay" onClick={handleCloseGame}>
           <div className="game-modal-content" onClick={(e) => e.stopPropagation()}>
@@ -201,6 +211,7 @@ export function HomePage() {
         </div>
       )}
 
+      {/* Section Contact */}
       <section className="contact-section">
         <h2 className="contact-title">{t('contact_section.title')}</h2>
         <p className="contact-subtitle">{t('contact_section.subtitle')}</p>
@@ -209,6 +220,7 @@ export function HomePage() {
         </button>
       </section>
 
+      {/* Dialog — Détails du projet */}
       <Dialog
         open={projectModal.isOpen}
         onOpenChange={(open: boolean) => !open && projectModal.close()}
@@ -280,7 +292,10 @@ export function HomePage() {
                   <h4 className="mb-3 font-semibold">{t('modals.technologies')}</h4>
                   <div className="flex flex-wrap gap-2">
                     {projectModal.data.technologies.map((tech: string, index: number) => (
-                      <span key={index} className="tech-badge-large">
+                      <span
+                        key={index}
+                        className={`tech-badge-large ${SOFT_SKILLS.includes(tech) ? 'tech-badge--soft' : 'tech-badge--hard'}`}
+                      >
                         {tech}
                       </span>
                     ))}
@@ -314,6 +329,7 @@ export function HomePage() {
         </DialogContent>
       </Dialog>
 
+      {/* Dialog — Affiche */}
       <Dialog
         open={posterModal.isOpen}
         onOpenChange={(open: boolean) => !open && posterModal.close()}
@@ -332,6 +348,7 @@ export function HomePage() {
         </DialogContent>
       </Dialog>
 
+      {/* Dialog — Description */}
       <Dialog
         open={descriptionModal.isOpen}
         onOpenChange={(open: boolean) => !open && descriptionModal.close()}

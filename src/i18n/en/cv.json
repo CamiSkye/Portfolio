@@ -37,6 +37,7 @@
     {
       "title": "Intern",
       "company": "HexoTech",
+      "companyUrl": "https://www.hexotech.fr/",
       "period": "February 2026 to August 2026",
       "tasks": [
         "UI/UX creation for a 3D part visualization application for ArcelorMittal.",
@@ -49,6 +50,7 @@
     {
       "title": "Project Manager - Training on Sexist and Sexual Violence",
       "company": "ESIEA",
+      "companyUrl": "https://www.esiea.fr/",
       "period": "March 2025 to January 2026",
       "tasks": [
         "Development of a one-hour in-person awareness training on SSV for all ages.",
@@ -61,6 +63,7 @@
     {
       "title": "Scrum Master - Online appointment booking website",
       "company": "ESIEA",
+      "companyUrl": "https://www.esiea.fr/",
       "period": "March 2025 to July 2025",
       "tasks": [
         "Development of a multi-service provider application.",
@@ -73,7 +76,10 @@
   "formations": [
     {
       "title": "Bachelor's Degree in Web and Mobile Development",
-      "school": "ESIEA — Ivry-sur-Seine",
+      "titleUrl": "https://www.esiea.fr/formations-experts-en-informatique/lia/",
+      "school": "ESIEA",
+      "schoolUrl": "https://www.esiea.fr/",
+      "location": "Ivry-sur-Seine",
       "period": "September 2023 to Present",
       "tasks": ["Software design and development", "Web development and databases"]
     }
@@ -89,12 +95,18 @@
   "soft_skills": ["Agile Methodology", "Leadership", "Creativity", "Organizational skills"],
   "interests": ["Video game development", "Reading / Writing", "Sport: running", "Greek mythology"],
   "profile": [
-    { "label": "Email", "display": "clacroix@et.esiea.fr" },
+    {
+      "label": "Email",
+      "display": "clacroix@et.esiea.fr",
+      "href": "mailto:clacroix@et.esiea.fr",
+      "icon": "mail"
+    },
     {
       "label": "LinkedIn",
+      "display": "in/lacroix-camille",
       "href": "https://linkedin.com/in/lacroix-camille",
-      "display": "in/lacroix-camille"
+      "icon": "linkedin"
     },
-    { "label": "Location", "display": "Yvelines / Paris" }
+    { "label": "Location", "display": "Yvelines / Paris", "icon": "location" }
   ]
 }

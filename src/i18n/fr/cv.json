@@ -37,6 +37,7 @@
     {
       "title": "Stagiaire",
       "company": "HexoTech",
+      "companyUrl": "https://www.hexotech.fr/",
       "period": "Février 2026 à Août 2026",
       "tasks": [
         "Création de l'UI/UX d'une application de visualisation de pièce 3D pour ArcelorMittal.",
@@ -49,6 +50,7 @@
     {
       "title": "Cheffe de projet - Formation sur les Violences Sexistes et Sexuelles",
       "company": "ESIEA",
+      "companyUrl": "https://www.esiea.fr/",
       "period": "Mars 2025 à Janvier 2026",
       "tasks": [
         "Élaboration d'une formation de sensibilisation d'une heure sur le sujet des VSS pour tout âge en présentiel.",
@@ -61,6 +63,7 @@
     {
       "title": "Scrum Master - Site de prise de rendez-vous en ligne",
       "company": "ESIEA",
+      "companyUrl": "https://www.esiea.fr/",
       "period": "Mars 2025 à Juillet 2025",
       "tasks": [
         "Développement d'une application multi-prestataires.",
@@ -73,7 +76,10 @@
   "formations": [
     {
       "title": "Bachelor Expert en Développement web et mobile",
-      "school": "ESIEA — Ivry-sur-Seine",
+      "titleUrl": "https://www.esiea.fr/formations-experts-en-informatique/lia/",
+      "school": "ESIEA",
+      "schoolUrl": "https://www.esiea.fr/",
+      "location": "Ivry-sur-Seine",
       "period": "Septembre 2023 à Aujourd'hui",
       "tasks": ["Conception et développement logiciel", "Développement web et bases de données"]
     }
@@ -94,12 +100,18 @@
     "Mythologie grecque"
   ],
   "profile": [
-    { "label": "Mail", "display": "clacroix@et.esiea.fr" },
+    {
+      "label": "Mail",
+      "display": "clacroix@et.esiea.fr",
+      "href": "mailto:clacroix@et.esiea.fr",
+      "icon": "mail"
+    },
     {
       "label": "LinkedIn",
+      "display": "Camille Lacroix",
       "href": "https://linkedin.com/in/lacroix-camille",
-      "display": "in/lacroix-camille"
+      "icon": "linkedin"
     },
-    { "label": "Lieu", "display": "Yvelines / Paris" }
+    { "label": "Lieu", "display": "Yvelines / Paris", "icon": "location" }
   ]
 }

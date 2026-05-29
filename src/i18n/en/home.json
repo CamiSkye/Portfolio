@@ -1,8 +1,8 @@
 {
   "about": {
     "title": "Camille LACROIX",
-    "bio_1": "I am passionate about software development and interface design. I love turning ideas into innovative and intuitive solutions that make users' lives easier. Serious, bold and always eager for challenges, I constantly seek to learn and push my limits through varied projects. Dynamic and committed, I fully invest myself in every mission to deliver concrete results and create real value for the team.",
-    "bio_2": "I enjoy blending technical skills with creativity, keeping up with trends and experimenting with new approaches to design experiences that are functional, aesthetic and impactful. This portfolio reflects my journey, my achievements and my enthusiasm to keep innovating and growing in my field."
+    "bio_1": "I am passionate about software development and interface design. I really appreciate turning ideas into innovative and intuitive solutions that make users' lives easier. Serious, bold and always eager for challenges, I constantly seek to learn and push my limits through varied projects. Dynamic and committed, I fully invest myself in every mission to deliver concrete results and create real value for the team.",
+    "bio_2": "I enjoy blending technical skills with soft skills, like creativity, keeping up with trends and experimenting with new approaches to design experiences that are functional, aesthetic and impactful. This portfolio reflects my journey, my achievements and my enthusiasm to keep innovating and growing in my field."
   },
   "sections": {
     "dev_projects": "Development Projects",
@@ -11,7 +11,7 @@
   },
   "contact_section": {
     "title": "Contact me",
-    "subtitle": "I'm always open to discussing new projects or internship opportunities!"
+    "subtitle": "I'm always open to discuss new projects or work opportunities!"
   },
   "modals": {
     "poster_title": "Project Poster",

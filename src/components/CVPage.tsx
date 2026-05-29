@@ -1,9 +1,16 @@
+import { Linkedin, Mail, MapPin } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import affichePdf from '../assets/affichesensibilisation.pdf';
 import cvPdf from '../assets/CV_Camille_LACROIX.pdf';
 import '../styles/cv.css';
 import '../styles/print.css';
 import { CVPrint } from './CVPrint';
+
+const iconMap: Record<string, React.ReactNode> = {
+  mail: <Mail size={16} />,
+  linkedin: <Linkedin size={16} />,
+  location: <MapPin size={16} />,
+};
 
 export function CVPage() {
   const { t } = useTranslation('cv');
@@ -12,6 +19,7 @@ export function CVPage() {
   const experiences = t('experiences', { returnObjects: true }) as Array<{
     title: string;
     company: string;
+    companyUrl: string;
     period: string;
     tasks: string[];
     tags?: string;
@@ -20,7 +28,10 @@ export function CVPage() {
 
   const formations = t('formations', { returnObjects: true }) as Array<{
     title: string;
+    titleUrl: string;
     school: string;
+    schoolUrl: string;
+    location: string;
     period: string;
     tasks: string[];
   }>;
@@ -37,12 +48,18 @@ export function CVPage() {
     label: string;
     display: string;
     href?: string;
+    icon: string;
   }>;
 
   return (
     <>
       <main>
-        <h1 className="cv-page-title">{t('title')}</h1>
+        <div className="cv-header">
+          <h1 className="cv-page-title">{t('title')}</h1>
+          <button className="cv-print-btn" onClick={() => window.print()}>
+            🖨️
+          </button>
+        </div>
 
         <div className="cv-container">
           {/* ── Expériences & Formations ── */}
@@ -53,9 +70,12 @@ export function CVPage() {
               <div key={index} className="experience">
                 <h3>{exp.title}</h3>
                 <p className="cv-company-period">
-                  {exp.company} - {exp.period}
+                  <a href={exp.companyUrl} target="_blank" rel="noreferrer" className="cv-link">
+                    {exp.company}
+                  </a>{' '}
+                  - {exp.period}
                 </p>
-                <ul>
+                <ul className="cv-tasks-list">
                   {exp.tasks.map((task, i) => (
                     <li key={i}>
                       {task}
@@ -92,9 +112,18 @@ export function CVPage() {
 
             {formations.map((form, index) => (
               <div key={index} className="experience">
-                <h3>{form.title}</h3>
+                <h3>
+                  <a href={form.titleUrl} target="_blank" rel="noreferrer" className="cv-link">
+                    {form.title}
+                  </a>
+                </h3>
                 <p className="cv-company-period">{form.period}</p>
-                <p className="cv-school">{form.school}</p>
+                <p className="cv-school">
+                  <a href={form.schoolUrl} target="_blank" rel="noreferrer" className="cv-link">
+                    {form.school}
+                  </a>{' '}
+                  — {form.location}
+                </p>
                 <br />
                 <ul className="cv-formations-list">
                   {form.tasks.map((task, i) => (
@@ -105,18 +134,25 @@ export function CVPage() {
             ))}
           </div>
 
+          {/* ── Sidebar ── */}
           <div className="sidebar">
             <section>
               <h2>{t('sidebar.profile')}</h2>
-              <ul>
+              <ul className="cv-profile-list">
                 {profileLinks.map((link, i) => (
-                  <li key={i}>
+                  <li key={i} className="cv-profile-item">
+                    <span className="cv-profile-icon">{iconMap[link.icon]}</span>
                     {link.href ? (
-                      <a href={link.href} target="_blank" rel="noreferrer" className="cv-link">
+                      <a
+                        href={link.href}
+                        target={link.icon === 'mail' ? undefined : '_blank'}
+                        rel="noreferrer"
+                        className="cv-link"
+                      >
                         {link.display}
                       </a>
                     ) : (
-                      link.display
+                      <span>{link.display}</span>
                     )}
                   </li>
                 ))}
@@ -145,7 +181,7 @@ export function CVPage() {
 
             <section>
               <h2>{t('sidebar.interests')}</h2>
-              <ul>
+              <ul className="cv-interests-list">
                 {interests.map((interest, i) => (
                   <li key={i}>{interest}</li>
                 ))}

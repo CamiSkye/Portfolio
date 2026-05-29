@@ -14,7 +14,7 @@
   },
   "buttons": {
     "view_cv": "Voir mon CV",
-    "download_cv": "Télécharger mon CV",
+    "download_cv": "Télécharger mon CV (PDF)",
     "contact_me": "Me contacter",
     "view": "View",
     "git": "Git",

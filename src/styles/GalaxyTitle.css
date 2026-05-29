@@ -1,15 +1,15 @@
 .container {
-  position: relative;          
+  position: relative;
   text-align: center;
-  margin: 60px 0 40px 0;      
-  pointer-events: none;        
+  margin: 60px 0 40px 0;
+  pointer-events: none;
 }
 
 .title {
   font-weight: 800;
   color: transparent;
   font-size: 80px;
-  background-image: url(../assets/test_image.jpg) ;
+  background-image: url(../assets/Neptune.png);
   background-size: cover;
   background-clip: text;
   background-position: 40% 50%;
@@ -21,13 +21,13 @@
   position: relative;
   transition: background-position 0.05s ease;
   background-clip: text;
-  animation: animate 20s linear infinite
+  animation: animate 20s linear infinite;
 }
 
-@keyframes animate{
-    to{
-        background-position-x: -500px ;
-    }
+@keyframes animate {
+  to {
+    background-position-x: -500px;
+  }
 }
 
 .carousel-3d-container {
@@ -80,7 +80,7 @@
   backface-visibility: hidden;
   will-change: transform, opacity;
   cursor: pointer;
-  transition: all .7s cubic-bezier(.32, .72, 0, 1);
+  transition: all 0.7s cubic-bezier(0.32, 0.72, 0, 1);
   position: absolute;
 }
 
@@ -102,7 +102,7 @@
   align-items: center;
   width: 60px;
   height: 60px;
-  transition: all .3s;
+  transition: all 0.3s;
   display: flex;
 }
 
@@ -114,7 +114,7 @@
 }
 
 .carousel-nav-btn:active {
-  transform: scale(.95);
+  transform: scale(0.95);
 }
 
 .carousel-indicators {
@@ -132,7 +132,7 @@
   width: 12px;
   height: 12px;
   padding: 0;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
 .carousel-indicator.active {
@@ -176,4 +176,3 @@
     height: 50px;
   }
 }
-

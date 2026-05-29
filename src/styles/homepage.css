@@ -129,6 +129,7 @@
   padding: 20px;
 }
 
+
 .dialog-description {
   width: 80vw;
   max-width: 900px;
@@ -197,4 +198,16 @@
   max-height: 75vh;
   object-fit: contain;
   border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+  .dialog-poster {
+    width: 95vw !important;
+    max-width: 95vw !important;
+    padding: 12px;
+  }
+
+  .poster-image {
+    max-height: 80vh;
+  }
 }

@@ -19,10 +19,25 @@ import shootingGameImage from '../assets/tir.jpg';
 import vss from '../assets/vss.jpg';
 import type { Project } from '../types/project';
 
+export const SOFT_SKILLS = [
+  'Leadership',
+  'Communication',
+  'Autonomie',
+  'Créativité',
+  'Adaptabilité',
+  'Assertivité',
+  'FeedBack',
+  'Sens du collectif',
+  'Sensibilisation',
+  'Esprit critique',
+  'Scrum Master',
+];
+
 export function useProjects() {
   const { t } = useTranslation('home');
 
   const projects: Project[] = [
+    // ─── Projets informatiques ───────────────────────────────────────────────
     {
       id: 5,
       title: t('projects.erinyes_info.title'),
@@ -32,7 +47,7 @@ export function useProjects() {
       poster: Sensibilisation,
       codeUrl: 'https://github.com/CamiSkye/erinyes',
       category: 'informatique',
-      technologies: ['HTML', 'CSS', 'React', 'Autonomie', 'Créativité', 'FeedBack', 'Humain'],
+      technologies: ['HTML', 'CSS', 'React', 'Autonomie', 'Créativité', 'FeedBack', 'Leadership'],
       detailsContent: { type: 'url', content: 'https://erinyes.fr' },
     },
     {
@@ -56,7 +71,7 @@ export function useProjects() {
       poster: Relax,
       codeUrl: 'https://github.com/CamiSkye/SoftRelax',
       category: 'informatique',
-      technologies: ['HTML', 'CSS', 'PHP', 'MySQL', 'Feedback', 'Esprit critique'],
+      technologies: ['HTML', 'CSS', 'PHP', 'MySQL', 'FeedBack', 'Esprit critique'],
       detailsContent: { type: 'text', content: t('projects.softrelax.full') },
     },
     {
@@ -65,7 +80,7 @@ export function useProjects() {
       shortDescription: t('projects.portfolio.short'),
       fullDescription: t('projects.portfolio.full'),
       image: logo,
-      poster: Relax,
+      poster: '',
       codeUrl: 'https://github.com/CamiSkye/Portfolio',
       category: 'informatique',
       technologies: ['HTML', 'CSS', 'JS', 'React', 'Autonomie', 'Créativité'],
@@ -79,6 +94,7 @@ export function useProjects() {
       },
     },
 
+    // ─── Projets humains ─────────────────────────────────────────────────────
     {
       id: 4,
       title: t('projects.nemesis.title'),
@@ -124,6 +140,7 @@ export function useProjects() {
       },
     },
 
+    // ─── Mini jeux ───────────────────────────────────────────────────────────
     {
       id: 3,
       title: t('projects.shooting_game.title'),
