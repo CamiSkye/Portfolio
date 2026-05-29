@@ -1,0 +1,28 @@
+{
+  "nav": {
+    "projects_info": "Projets Info",
+    "communication": "Communication",
+    "mini_game": "Mini-Jeu",
+    "cv": "CV",
+    "contact": "Contact",
+    "title": "Développeuse Full-Stack"
+  },
+  "footer": {
+    "rights": "Tous droits réservés",
+    "role": "Développeuse Full-Stack",
+    "legal": "Mentions légales"
+  },
+  "buttons": {
+    "view_cv": "Voir mon CV",
+    "download_cv": "Télécharger mon CV",
+    "contact_me": "Me contacter",
+    "view": "View",
+    "git": "Git",
+    "poster": "Affiche",
+    "play": "Jouer",
+    "description": "Description",
+    "see_code": "Voir le code",
+    "download_poster": "Télécharger l'affiche de sensibilisation",
+    "back": "← Retour"
+  }
+}

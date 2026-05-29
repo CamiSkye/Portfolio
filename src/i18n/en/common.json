@@ -1,0 +1,28 @@
+{
+  "nav": {
+    "projects_info": "Dev Projects",
+    "communication": "Communication",
+    "mini_game": "Mini-Game",
+    "cv": "Resume",
+    "contact": "Contact",
+    "title": "Full-Stack Developer"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "role": "Full-Stack Developer",
+    "legal": "Legal Notice"
+  },
+  "buttons": {
+    "view_cv": "View my Resume",
+    "download_cv": "Download my Resume",
+    "contact_me": "Contact me",
+    "view": "View",
+    "git": "Git",
+    "poster": "Poster",
+    "play": "Play",
+    "description": "Description",
+    "see_code": "See the code",
+    "download_poster": "Download the awareness poster",
+    "back": "← Back"
+  }
+}

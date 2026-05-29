@@ -2,35 +2,41 @@
    STYLES NORMAUX (hors impression)
    ============================================ */
 
-/* Cache le composant CVPrint sur le site */
 .cv-print-only {
   display: none;
 }
 
-/* Boutons téléchargement */
 .btn-download {
-  display: inline-block;
-  padding: 10px 24px;
-  border: 1px solid #3b82f6;
-  color: #3b82f6;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 20px;
+  width: auto !important;
   background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
   border-radius: 6px;
-  text-decoration: none;
-  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.85rem;
+  font-weight: 400;
   letter-spacing: 0.5px;
-  transition: background 0.2s ease, color 0.2s ease;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .btn-download:hover {
-  background: #3b82f6;
-  color: white;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
 }
 
 /* ============================================
    STYLES IMPRESSION (Ctrl+P)
    ============================================ */
-@media print {
 
+@media print {
   @page {
     size: A4;
     margin: 0;
@@ -42,10 +48,13 @@
     box-sizing: border-box;
   }
 
-  html, body {
+  html,
+  body {
     margin: 0 !important;
     padding: 0 !important;
     background: white !important;
+    height: 29.7cm !important;
+    overflow: hidden !important;
   }
 
   /* Cache tout le portfolio */
@@ -65,7 +74,8 @@
     top: 0;
     left: 0;
     width: 21cm;
-    min-height: 29.7cm;
+    height: 29.7cm;
+    overflow: hidden;
     background: white;
     color: #1a1a2e;
     font-family: 'DM Sans', 'Segoe UI', sans-serif;
@@ -117,12 +127,14 @@
     display: grid;
     grid-template-columns: 58% 42%;
     height: calc(29.7cm - 120px);
+    overflow: hidden;
   }
 
   /* ---- COLONNE GAUCHE ---- */
   .cvp-main {
     padding: 24px 28px;
     border-right: 1px solid #e5e7eb;
+    overflow: hidden;
   }
 
   .cvp-intro {
@@ -198,6 +210,7 @@
   .cvp-sidebar {
     padding: 24px 22px;
     background: #f8fafc;
+    overflow: hidden;
   }
 
   .cvp-sidebar-title {
@@ -263,7 +276,7 @@
     margin-top: 3px;
   }
 
-  /* Cache tout le reste du portfolio */
+  /* Cache tout le reste */
   .btn-download,
   a.btn-download,
   button {

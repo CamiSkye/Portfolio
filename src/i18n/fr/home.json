@@ -1,0 +1,58 @@
+{
+  "about": {
+    "title": "Camille LACROIX",
+    "bio_1": "Je suis passionnée par le développement logiciel et le design d'interfaces. J'adore transformer des idées en solutions innovantes et intuitives qui facilitent la vie des utilisateurs. Sérieuse, audacieuse et toujours avide de défis, je cherche constamment à apprendre et à repousser mes limites à travers des projets variés. Dynamique et engagée, je m'implique pleinement dans chaque mission pour apporter des résultats concrets et créer une vraie valeur pour l'équipe.",
+    "bio_2": "J'aime mêler technique et créativité, suivre les tendances et expérimenter de nouvelles approches pour concevoir des expériences à la fois fonctionnelles, esthétiques et impactantes. Ce portfolio reflète mon parcours, mes réalisations et mon enthousiasme à continuer d'innover et de grandir dans mon métier."
+  },
+  "sections": {
+    "dev_projects": "Projets Informatiques",
+    "communication": "Projets de Communication",
+    "mini_game": "Mini Jeu"
+  },
+  "contact_section": {
+    "title": "Contactez-moi",
+    "subtitle": "Je suis toujours partante pour discuter de nouveaux projets ou d'opportunités d'alternance !"
+  },
+  "modals": {
+    "poster_title": "Affiche du projet",
+    "full_description": "Description complète",
+    "technologies": "Technologies utilisées"
+  },
+  "projects": {
+    "erinyes_info": {
+      "title": "Les Erinyes",
+      "short": "Site de sensibilisation contre les VSS",
+      "full": "Erinyes est un site de sensibilisation que j'ai conçu et développé pour lutter contre les violences sexistes et sexuelles (VSS), en rendant accessibles des ressources pédagogiques et des outils concrets pour tous. L'objectif était de créer une plateforme claire, engageante et informative permettant de comprendre l'ampleur des violences, de savoir comment agir en tant que témoin ou victime, et d'accéder rapidement aux aides disponibles.\n\nJ'ai structuré le contenu autour des chiffres clés récents sur les VSS, accompagnés d'explications compréhensibles pour un large public. Le site inclut également mes supports de formation e-learning, un violentomètre interactif pour aider à repérer les différents degrés de violence, et plusieurs affiches de sensibilisation visuelles que j'ai créées moi-même pour faciliter la prévention.\n\nCe projet m'a permis de combiner design visuel, pédagogie et développement web pour proposer une plateforme utile et accessible, tout en contribuant à une cause sociale majeure qui concerne et affecte un grand nombre de personnes chaque année."
+    },
+    "skyndar": {
+      "title": "Skyndar",
+      "short": "Logiciel de gestion de rendez-vous",
+      "full": "Skyndar est un logiciel que j'ai développé pour une entreprise, avec une application administrateur en C# / WPF et un site web côté client en PHP / JavaScript. L'objectif était de créer un outil complet et intuitif pour gérer les rendez-vous, côté utilisateur et côté équipe administrative.\n\nJ'ai conçu l'interface administrateur en MVVM, permettant de gérer les prestations et l'historique client en temps réel, avec mise à jour automatique de la base de données. Côté client, j'ai participé au parcours utilisateur, de la réservation jusqu'à la confirmation, avec une mini-carte et l'envoi automatique de mails.\n\nCe projet m'a permis de combiner développement back-end et front-end, UX/UI et gestion de bases de données, tout en répondant à un besoin réel d'entreprise."
+    },
+    "softrelax": {
+      "title": "Soft Relax",
+      "short": "Site vitrine pour entreprise de bien-être",
+      "full": "Soft Relax est un site web professionnel développé pour une entreprise spécialisée dans les massages et le bien-être. Il présente l'ensemble des services proposés, permet aux clients de prendre contact facilement via un formulaire intégré, et offre une expérience visuelle apaisante en accord avec l'identité de l'entreprise.\n\nChaque utilisateur pouvait créer son compte pour réserver un rendez-vous, tandis que l'administratrice disposait également de son compte pour gérer le contenu du site et apporter ses propres modifications si nécessaire.\n\nEn tant que cheffe de projet, j'ai été en charge de la relation avec le client, de la création des maquettes, de la relecture du code, ainsi que du développement de la partie administration et de la page prestations."
+    },
+    "portfolio": {
+      "title": "PortFolio",
+      "short": "Site vitrine pour montrer mes différents projets",
+      "full": "Mon portfolio est une vitrine de mes compétences en développement web et en design interactif. Il présente l'ensemble de mes projets personnels et professionnels, illustrant ma maîtrise de technologies telles que React, C#, WPF, PHP/MySQL et mon sens du design moderne et intuitif.\n\nChaque projet est décrit en détail, avec des démonstrations interactives et des captures d'écran, permettant aux visiteurs de comprendre le fonctionnement et les choix techniques derrière chaque réalisation.\n\nEn tant que développeuse et cheffe de projet de mon propre portfolio, j'ai conçu l'architecture, créé les maquettes, développé les fonctionnalités interactives, et intégré des animations pour offrir une expérience utilisateur fluide et engageante."
+    },
+    "nemesis": {
+      "title": "Nemesis",
+      "short": "Violences Sexistes et Sexuelles, partie 1",
+      "full": "Ce semestre, nous avons travaillé sur un projet profondément humain et porteur de sens : la création d'une formation de sensibilisation aux violences sexistes et sexuelles, dans le cadre d'une démarche RSE. En tant que cheffe de projet, j'ai dirigé une équipe investie et curieuse, tout en assurant la relation, la coordination et la cohérence globale du projet.\n\nNous avons mené une recherche approfondie (lectures, témoignages, lois, études) pour comprendre ce sujet complexe et le traiter avec justesse. Notre objectif : ne pas seulement informer, mais sensibiliser et susciter le dialogue au sein de notre établissement.\n\nLe résultat : une formation d'une heure accompagnée d'une affiche percutante, fruit de nombreux essais pour trouver le ton juste — ni trop dur, ni trop lisse. Cette initiative a eu un véritable impact, et notre travail est aujourd'hui en cours d'évolution vers une version e-learning."
+    },
+    "erinyes_humain": {
+      "title": "Les Erinyes",
+      "short": "Violences Sexistes et Sexuelles, partie 2",
+      "full": "Dans la continuité de cette première phase, nous avons développé deux parcours e-learning complets, chacun composé de cinq modules progressifs. Le premier reprend les bases : définitions essentielles, données clés, cadres juridiques et signaux d'alerte. Le second approfondit le sujet dans le milieu professionnel : harcèlement au travail, rapports hiérarchiques, culture d'entreprise et devoirs légaux des organisations.\n\nAu-delà des modules pédagogiques, notre groupe a réalisé une série d'affiches animées diffusées au sein de l'école pour rendre le sujet visible et briser le tabou. J'ai également conçu un site web de sensibilisation regroupant ressources, outils interactifs et informations pratiques.\n\nCe chantier m'a permis d'allier recherche, pédagogie, gestion de projet et création numérique, tout en contribuant à un changement tangible au sein de notre établissement et au-delà."
+    },
+    "shooting_game": {
+      "title": "Jeu de tir",
+      "short": "Jeu de tir 2D arcade",
+      "full": "Un jeu de tir en 2D développé en JavaScript avec une interface graphique en CSS. Le joueur doit affronter des vagues d'ennemis (les couronnes) avec un système de score. Le jeu propose des graphismes rétro et une jouabilité dynamique.\n\nCe jeu a été développé comme projet personnel pour explorer les mécaniques de jeu et l'animation canvas. Il inclut un système de collision optimisé, des effets de particules, et une bande sonore rétro. Le code est modulaire et facilement extensible pour ajouter de nouveaux ennemis ou power-ups."
+    }
+  }
+}

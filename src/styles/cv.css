@@ -1,0 +1,81 @@
+.cv-page-title {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+.cv-company-period {
+  color: #3b82f6;
+  margin-bottom: 12px;
+}
+
+.cv-tags {
+  margin-top: 8px;
+  color: #aaa;
+}
+
+.cv-link {
+  color: #3b82f6;
+}
+
+.cv-school {
+  color: #ccc;
+}
+
+.cv-formations-title {
+  margin-top: 20px;
+}
+
+.cv-formations-list {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.cv-softskills-list {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.cv-download-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 15px 40px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin-top: 30px;
+  text-decoration: none;
+  width: 100%;
+  text-align: center;
+}
+
+.cv-download-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.02);
+}
+
+.cv-poster-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 15px 40px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin-top: 15px;
+  text-decoration: none;
+}
+
+.cv-poster-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.02);
+}

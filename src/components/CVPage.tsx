@@ -1,128 +1,163 @@
+import { useTranslation } from 'react-i18next';
 import affichePdf from '../assets/affichesensibilisation.pdf';
 import cvPdf from '../assets/CV_Camille_LACROIX.pdf';
-import "../styles/print.css";
+import '../styles/cv.css';
+import '../styles/print.css';
 import { CVPrint } from './CVPrint';
 
 export function CVPage() {
+  const { t } = useTranslation('cv');
+  const { t: tc } = useTranslation('common');
+
+  const experiences = t('experiences', { returnObjects: true }) as Array<{
+    title: string;
+    company: string;
+    period: string;
+    tasks: string[];
+    tags?: string;
+    link?: { href: string; label: string };
+  }>;
+
+  const formations = t('formations', { returnObjects: true }) as Array<{
+    title: string;
+    school: string;
+    period: string;
+    tasks: string[];
+  }>;
+
+  const skills = t('skills', { returnObjects: true }) as Array<{
+    label: string;
+    value?: string;
+    tags?: string[];
+  }>;
+
+  const softSkills = t('soft_skills', { returnObjects: true }) as string[];
+  const interests = t('interests', { returnObjects: true }) as string[];
+  const profileLinks = t('profile', { returnObjects: true }) as Array<{
+    label: string;
+    display: string;
+    href?: string;
+  }>;
+
   return (
     <>
       <main>
-        <h1 style={{ 
-          textAlign: 'center', 
-          marginBottom: '40px',
-          fontSize: '3rem',
-          fontWeight: '300',
-          letterSpacing: '2px'
-        }}>
-          Mon CV
-        </h1>
-        
-        <div className="cv-container">
-          <div className="experiences">
-            <h2>EXPÉRIENCES</h2>
-            <div className="experience">
-              <h3>Stagiaire </h3>
-              <p style={{ color: '#3b82f6', marginBottom: '12px' }}>HexoTech - Février 2026 à Août 2026</p>
-              <ul>
-                <li>Création de l'UI/UX d'une application de visualisation de pièce 3D pour ArcelorMittal.</li>
-                <li>Création de documentation technique (manuel utilisateur en français et anglais).</li>
-                <li>Formation sur l'Intelligence artificielle.</li>
-                <li>Apprentissage du python.</li>
-              </ul>
-            </div>
+        <h1 className="cv-page-title">{t('title')}</h1>
 
-            <div className="experience">
-              <h3>Cheffe de projet - Formation sur les Violences Sexistes et Sexuelles</h3>
-              <p style={{ color: '#3b82f6', marginBottom: '12px' }}>ESIEA - Mars 2025 à Janvier 2026</p>
-              <ul>
-                <li>Elaboration d'une formation de sensibilisation d'une heure sur le sujet des VSS pour tout âge en présentiel.</li>
-                <li>Organisation de deux formations en e-learning.</li>
-                <li>Création de support de communication et de sensibilisation : <a href="https://erinyes.fr" target="_blank" rel="noreferrer" style={{ color: '#3b82f6' }}>erinyes.fr</a></li>
-              </ul>
-              <a 
-                href={affichePdf}
-                download="affichesensibilisation.pdf" 
-                className="btn-download"
-                style={{ marginTop: '15px', display: 'inline-block', textAlign: 'center' }}
-              >
-                Télécharger l'affiche de sensibilisation
-              </a>
-            </div>
-            
-            <div className="experience">
-              <h3>Scrum Master - Site de prise de rendez-vous en ligne</h3>
-              <p style={{ color: '#3b82f6', marginBottom: '12px' }}>ESIEA - Mars 2025 à Juillet 2025</p>
-              <ul>
-                <li>Développement d'une application multi-prestataires.</li>
-                <li>Interface Web et WPF.</li>
-                <li>Projet avec commanditaire extérieur.</li>
-              </ul>
-            </div>
-            <h2 style={{ marginTop: '20px' }}>FORMATIONS</h2>
-            
-            <div className="experience">
-              <h3>Bachelor Expert en Développement web et mobile</h3>
-              <p style={{ color: '#3b82f6', marginBottom: '12px' }}>Septembre 2023 à Aujourd'hui</p>
-              <p style={{ color: '#ccc' }}>Esiea - Ivry-sur-Seine</p><br></br>
-              <ul style={{ listStyleType: 'disc', marginLeft: '20px' }}>
-                <li>Conception et développement logiciel</li>
-                <li>Développement web et bases de données</li>
-              </ul>
-            </div>
+        <div className="cv-container">
+          {/* ── Expériences & Formations ── */}
+          <div className="experiences">
+            <h2>{t('sections.experiences')}</h2>
+
+            {experiences.map((exp, index) => (
+              <div key={index} className="experience">
+                <h3>{exp.title}</h3>
+                <p className="cv-company-period">
+                  {exp.company} - {exp.period}
+                </p>
+                <ul>
+                  {exp.tasks.map((task, i) => (
+                    <li key={i}>
+                      {task}
+                      {exp.link && i === exp.tasks.length - 1 && (
+                        <>
+                          {' '}
+                          <a
+                            href={exp.link.href}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="cv-link"
+                          >
+                            {exp.link.label}
+                          </a>
+                        </>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+                {exp.tags && <p className="cv-tags">{exp.tags}</p>}
+                {index === 1 && (
+                  <a
+                    href={affichePdf}
+                    download="affichesensibilisation.pdf"
+                    className="cv-poster-btn"
+                  >
+                    {tc('buttons.download_poster')}
+                  </a>
+                )}
+              </div>
+            ))}
+
+            <h2 className="cv-formations-title">{t('sections.formations')}</h2>
+
+            {formations.map((form, index) => (
+              <div key={index} className="experience">
+                <h3>{form.title}</h3>
+                <p className="cv-company-period">{form.period}</p>
+                <p className="cv-school">{form.school}</p>
+                <br />
+                <ul className="cv-formations-list">
+                  {form.tasks.map((task, i) => (
+                    <li key={i}>{task}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
-          
+
           <div className="sidebar">
             <section>
-              <h2>Profil</h2>
+              <h2>{t('sidebar.profile')}</h2>
               <ul>
-                <li>Mail : clacroix@et.esiea.fr</li>
-                <li><a href="https://linkedin.com/in/lacroix-camille" target="_blank" rel="noreferrer" style={{ color: '#3b82f6' }}>in/lacroix-camille</a></li>
-                <li>Lieux : Yvelines/Paris</li>
+                {profileLinks.map((link, i) => (
+                  <li key={i}>
+                    {link.href ? (
+                      <a href={link.href} target="_blank" rel="noreferrer" className="cv-link">
+                        {link.display}
+                      </a>
+                    ) : (
+                      link.display
+                    )}
+                  </li>
+                ))}
               </ul>
             </section>
 
             <section>
-              <h2>Compétences techniques</h2>
+              <h2>{t('sidebar.skills')}</h2>
               <ul>
-                <li>Anglais : TOEIC 450/990</li>
-                <li>Frontend : HTML, CSS, JS, React, TypeScript</li>
-                <li>Backend : PHP, C#, WPF, MySQL, Python</li>
-                <li>En apprentissage : JAVA</li>
-                <li>Systèmes d'exploitation : Windows, Linux</li>
-                <li>Outils : Docker, Grafana</li>
+                {skills.map((skill, i) => (
+                  <li key={i}>
+                    {skill.label} : {skill.value ?? skill.tags?.join(', ')}
+                  </li>
+                ))}
               </ul>
             </section>
 
             <section>
-              <h2>Soft Skills</h2>
-              <ul style={{ listStyleType: 'disc', marginLeft: '20px' }}>
-                <li>Méthodologie Agile</li>                
-                <li>Leadership</li>
-                <li>Créativité</li>
-                <li>Sens de l'organisation</li>
+              <h2>{t('sidebar.soft_skills')}</h2>
+              <ul className="cv-softskills-list">
+                {softSkills.map((s, i) => (
+                  <li key={i}>{s}</li>
+                ))}
               </ul>
             </section>
 
             <section>
-              <h2>Centres d'intérêt</h2>
+              <h2>{t('sidebar.interests')}</h2>
               <ul>
-                <li>Création de jeux vidéo</li>
-                <li>Lecture/Écriture</li>
-                <li>Sport : footing</li>
-                <li>Mythologie grecque</li>
+                {interests.map((interest, i) => (
+                  <li key={i}>{interest}</li>
+                ))}
               </ul>
             </section>
 
-            <a 
-              href={cvPdf}
-              download="CV_Camille_LACROIX.pdf" 
-              className="btn-download"
-              style={{ width: '100%', marginTop: '30px', textAlign: 'center', display: 'inline-block' }}
-            >
-              Télécharger mon CV
+            <a href={cvPdf} download="CV_Camille_LACROIX.pdf" className="cv-download-btn">
+              {tc('buttons.download_cv')}
             </a>
           </div>
         </div>
+
         <CVPrint />
       </main>
     </>

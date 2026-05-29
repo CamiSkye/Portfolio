@@ -1,182 +1,132 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useIsMobile } from '../hooks/useMediaQuery';
+import '../styles/navigation.css';
 
-interface NavigationProps {
-  currentPage: string;
-  onPageChange: (page: string) => void;
+function LangSwitcher({
+  mobile = false,
+  currentLang,
+  onChange,
+}: {
+  mobile?: boolean;
+  currentLang: string;
+  onChange: (lang: 'fr' | 'en') => void;
+}) {
+  return (
+    <div className="lang-switcher">
+      {(['fr', 'en'] as const).map((lang) => (
+        <button
+          key={lang}
+          onClick={() => onChange(lang)}
+          className={`lang-btn ${mobile ? 'lang-btn--mobile' : ''} ${currentLang === lang ? 'lang-btn--active' : ''}`}
+        >
+          {lang.toUpperCase()}
+        </button>
+      ))}
+    </div>
+  );
 }
 
-export function Navigation({ currentPage, onPageChange }: NavigationProps) {
+export function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const isMobile = useIsMobile();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { t, i18n } = useTranslation('common');
 
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  const currentPage = location.pathname.replace('/', '') || 'accueil';
+  const currentLang = i18n.language;
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   const handlePageChange = (page: string) => {
-    onPageChange(page);
+    navigate(`/${page === 'accueil' ? '' : page}`);
     setIsMobileMenuOpen(false);
   };
 
   const handleScrollToSection = (id: string) => {
-    if (currentPage === 'accueil') {
-      const el = document.getElementById(id);
-      el?.scrollIntoView({ behavior: 'smooth' });
+    if (location.pathname === '/') {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     } else {
-      onPageChange('accueil');
+      navigate('/');
       setTimeout(() => {
-        const el = document.getElementById(id);
-        el?.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
       }, 300);
     }
     setIsMobileMenuOpen(false);
   };
 
-  const mobileBtn = {
-    background: 'none',
-    border: 'none',
-    fontSize: '18px',
-    textAlign: 'left' as const,
-    padding: '10px 0',
-    cursor: 'pointer',
-    transition: 'color 0.2s',
-  };
+  const navLinks = [
+    { label: t('nav.projects_info'), action: () => handleScrollToSection('informatique') },
+    { label: t('nav.communication'), action: () => handleScrollToSection('communication') },
+    { label: t('nav.mini_game'), action: () => handleScrollToSection('minijeu') },
+    { label: t('nav.cv'), action: () => handlePageChange('cv') },
+    { label: t('nav.contact'), action: () => handlePageChange('contact') },
+  ];
+
+  const isActive = (label: string) =>
+    (label === t('nav.cv') && currentPage === 'cv') ||
+    (label === t('nav.contact') && currentPage === 'contact');
 
   return (
-    <header
-      style={{
-        padding: '15px 40px',
-        position: 'sticky',
-        top: 0,
-        zIndex: 1000,
-        background: 'rgba(0,0,0,0.6)',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        flexWrap: 'wrap',
-      }}
-    >
-      {/* Logo / Titre à gauche */}
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          cursor: 'pointer',
-          color: 'white',
-          whiteSpace: 'nowrap',
-        }}
-      >
-        <span style={{ fontSize: '20px', fontWeight: 600 }}>CL - Développeuse Full-Stack</span>
+    <header className="nav-header">
+      {/* ── BLOC GAUCHE : Logo ── */}
+      <div className="nav-logo" onClick={() => handlePageChange('accueil')}>
+        <div className="nav-logo-badge">CL</div>
+        <span className="nav-logo-title">{t('nav.title')}</span>
       </div>
 
-      {/* Menu desktop à droite */}
+      {/* ── BLOC DROIT : Menu desktop ── */}
       {!isMobile && (
-        <nav>
-          <div style={{ display: 'flex', gap: '24px' }}>
-            <a
-              href="#informatique"
-              onClick={(e) => {
-                e.preventDefault();
-                handleScrollToSection('informatique');
-              }}
-              style={{ color: '#fff' }}
-            >
-              Projets Info
-            </a>
-            <a
-              href="#communication"
-              onClick={(e) => {
-                e.preventDefault();
-                handleScrollToSection('communication');
-              }}
-              style={{ color: '#fff' }}
-            >
-              Communication
-            </a>
-            <a
-              href="#minijeu"
-              onClick={(e) => {
-                e.preventDefault();
-                handleScrollToSection('minijeu');
-              }}
-              style={{ color: '#fff' }}
-            >
-              Mini-Jeu
-            </a>
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                handlePageChange('cv');
-              }}
-              style={{ color: currentPage === 'cv' ? '#3b82f6' : '#fff' }}
-            >
-              CV
-            </a>
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                handlePageChange('contact');
-              }}
-              style={{ color: currentPage === 'contact' ? '#3b82f6' : '#fff' }}
-            >
-              Contact
-            </a>
-          </div>
-        </nav>
+        <div className="nav-desktop-wrapper">
+          <nav>
+            <div className="nav-links-list">
+              {navLinks.map(({ label, action }) => (
+                <a
+                  key={label}
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    action();
+                  }}
+                  className={`nav-link ${isActive(label) ? 'nav-link--active' : ''}`}
+                >
+                  {label}
+                </a>
+              ))}
+            </div>
+          </nav>
+          <LangSwitcher currentLang={currentLang} onChange={(lang) => i18n.changeLanguage(lang)} />
+        </div>
       )}
 
-      {/* Hamburger mobile à droite */}
+      {/* ── BLOC DROIT : Burger mobile ── */}
       {isMobile && (
-        <button
-          onClick={toggleMobileMenu}
-          style={{
-            background: 'none',
-            border: 'none',
-            color: 'white',
-            fontSize: '28px',
-            cursor: 'pointer',
-          }}
-        >
-          {isMobileMenuOpen ? '✕' : '☰'}
-        </button>
+        <div className="nav-mobile-wrapper">
+          <LangSwitcher
+            mobile
+            currentLang={currentLang}
+            onChange={(lang) => i18n.changeLanguage(lang)}
+          />
+          <button onClick={toggleMobileMenu} className="nav-burger">
+            {isMobileMenuOpen ? '✕' : '☰'}
+          </button>
+        </div>
       )}
 
-      {/* Menu mobile en dessous du header */}
+      {/* ── Menu mobile déroulant ── */}
       {isMobileMenuOpen && (
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '12px',
-            width: '100%',
-            marginTop: '16px',
-            background: 'rgba(0,0,0,0.95)',
-            borderRadius: '10px',
-            padding: '16px',
-            border: '1px solid rgba(255,255,255,0.2)',
-          }}
-        >
-          <button onClick={() => handleScrollToSection('informatique')} style={mobileBtn}>
-            Projets Info
-          </button>
-          <button onClick={() => handleScrollToSection('communication')} style={mobileBtn}>
-            Communication
-          </button>
-          <button onClick={() => handleScrollToSection('minijeu')} style={mobileBtn}>
-            Mini-Jeu
-          </button>
-          <button onClick={() => handlePageChange('cv')} style={mobileBtn}>
-            CV
-          </button>
-          <button onClick={() => handlePageChange('contact')} style={mobileBtn}>
-            Contact
-          </button>
+        <div className="nav-mobile-menu">
+          {navLinks.map(({ label, action }) => (
+            <button
+              key={label}
+              onClick={action}
+              className={`nav-mobile-btn ${isActive(label) ? 'nav-mobile-btn--active' : ''}`}
+            >
+              {label}
+            </button>
+          ))}
         </div>
       )}
     </header>

@@ -1,0 +1,105 @@
+{
+  "title": "Mon CV",
+  "sections": {
+    "experiences": "EXPÉRIENCES",
+    "formations": "FORMATIONS"
+  },
+  "sidebar": {
+    "profile": "Profil",
+    "skills": "Compétences techniques",
+    "soft_skills": "Soft Skills",
+    "interests": "Centres d'intérêt"
+  },
+  "print": {
+    "name": "Camille",
+    "lastname": "LACROIX",
+    "subtitle": "Étudiante en 3ème année — Bachelor Concepteur et Développeur d'application web et mobile · Développeuse full-stack",
+    "badge": "⇒ ALTERNANCE 12 MOIS À PARTIR DE SEPTEMBRE 2026",
+    "intro": "Étudiante en 3e année du cursus Bachelor Expert en informatique, je recherche une alternance en développement web et mobile. Engagée, autonome, investie et curieuse, je m'adapte rapidement et m'implique pleinement dans les projets qui me sont confiés.",
+    "contacts_title": "Contacts",
+    "contacts": [
+      "✉ clacroix@et.esiea.fr",
+      "🌐 c-lacroix.fr",
+      "in in/lacroix-camille",
+      "📍 Yvelines / Paris"
+    ],
+    "soft_skills_title": "Soft Skills",
+    "soft_skills": ["✓ Leadership", "✓ Sens de l'organisation", "✓ Créativité"],
+    "interests_title": "Centres d'intérêt",
+    "interests": [
+      "✦ Création de jeux vidéo",
+      "✦ Lecture / Écriture",
+      "✦ Sport : Footing",
+      "✦ Mythologie grecque"
+    ]
+  },
+  "experiences": [
+    {
+      "title": "Stagiaire",
+      "company": "HexoTech",
+      "period": "Février 2026 à Août 2026",
+      "tasks": [
+        "Création de l'UI/UX d'une application de visualisation de pièce 3D pour ArcelorMittal.",
+        "Création de documentation technique (manuel utilisateur en français et anglais).",
+        "Formation sur l'Intelligence artificielle.",
+        "Apprentissage du Python."
+      ],
+      "tags": "Outils : React, ThreeJS"
+    },
+    {
+      "title": "Cheffe de projet - Formation sur les Violences Sexistes et Sexuelles",
+      "company": "ESIEA",
+      "period": "Mars 2025 à Janvier 2026",
+      "tasks": [
+        "Élaboration d'une formation de sensibilisation d'une heure sur le sujet des VSS pour tout âge en présentiel.",
+        "Organisation de deux formations en e-learning.",
+        "Création de support de communication et de sensibilisation :"
+      ],
+      "link": { "href": "https://erinyes.fr", "label": "erinyes.fr" },
+      "tags": "Soft Skills : Sens du collectif, pensée stratégique, assertivité"
+    },
+    {
+      "title": "Scrum Master - Site de prise de rendez-vous en ligne",
+      "company": "ESIEA",
+      "period": "Mars 2025 à Juillet 2025",
+      "tasks": [
+        "Développement d'une application multi-prestataires.",
+        "Interface Web et WPF.",
+        "Projet avec commanditaire extérieur."
+      ],
+      "tags": "Outils : PHP, MySQL, JS, C# et WPF · Soft Skills : Leadership, résolution des problèmes, méthodes agiles"
+    }
+  ],
+  "formations": [
+    {
+      "title": "Bachelor Expert en Développement web et mobile",
+      "school": "ESIEA — Ivry-sur-Seine",
+      "period": "Septembre 2023 à Aujourd'hui",
+      "tasks": ["Conception et développement logiciel", "Développement web et bases de données"]
+    }
+  ],
+  "skills": [
+    { "label": "Anglais", "value": "TOEIC 450/990" },
+    { "label": "Frontend", "tags": ["HTML", "CSS", "JS", "React", "TypeScript"] },
+    { "label": "Backend", "tags": ["PHP", "C#", "WPF", "MySQL", "Python"] },
+    { "label": "En apprentissage", "value": "JAVA" },
+    { "label": "Systèmes d'exploitation", "tags": ["Windows", "Linux"] },
+    { "label": "Outils", "tags": ["Docker", "Grafana"] }
+  ],
+  "soft_skills": ["Méthodologie Agile", "Leadership", "Créativité", "Sens de l'organisation"],
+  "interests": [
+    "Création de jeux vidéo",
+    "Lecture / Écriture",
+    "Sport : footing",
+    "Mythologie grecque"
+  ],
+  "profile": [
+    { "label": "Mail", "display": "clacroix@et.esiea.fr" },
+    {
+      "label": "LinkedIn",
+      "href": "https://linkedin.com/in/lacroix-camille",
+      "display": "in/lacroix-camille"
+    },
+    { "label": "Lieu", "display": "Yvelines / Paris" }
+  ]
+}

@@ -1,85 +1,22 @@
-import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useContactForm } from '../hooks/useContactForm';
+import '../styles/contact.css';
 
 export function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
- const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-  setIsSubmitting(true);
-
-  const form = e.currentTarget;
-  const data = new FormData(form);
-
-  // Convert FormData en URL-encoded pour Netlify Forms
-  const encode = (data: FormData) => {
-    return Array.from(data.entries())
-      .map(([key, value]) => encodeURIComponent(key) + '=' + encodeURIComponent(String(value)))
-      .join('&');
-  };
-
-  try {
-    const response = await fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode(data),
-    });
-
-    if (response.ok) {
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', message: '' });
-    } else {
-      throw new Error('Netlify a refusé le formulaire');
-    }
-  } catch (error) {
-    console.error(error);
-    setSubmitStatus('error');
-  } finally {
-    setIsSubmitting(false);
-    setTimeout(() => setSubmitStatus('idle'), 5000);
-  }
-};
-
+  const { formData, isSubmitting, submitStatus, handleChange, handleSubmit } = useContactForm();
+  const { t } = useTranslation('contact');
 
   return (
     <section>
-      <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>Contact</h1>
-      <p style={{ 
-        textAlign: 'left', 
-        marginBottom: '40px', 
-        fontSize: '1.2rem',
-        color: '#ccc',
-        maxWidth: '600px',
-        margin: '0 auto 40px',
-        paddingLeft: '20px'
-      }}>
-        Envoyez-moi un message pour discuter de vos projets ou opportunités.
-      </p>
+      <h1 className="contact-page-title">{t('title')}</h1>
+      <p className="contact-page-subtitle">{t('subtitle')}</p>
 
       <div className="form-card">
-        <form 
-          name="contact" 
-          method="POST" 
-          data-netlify="true" 
-          onSubmit={handleSubmit}
-        >
+        <form name="contact" method="POST" data-netlify="true" onSubmit={handleSubmit}>
           <input type="hidden" name="form-name" value="contact" />
 
           <div>
-            <label htmlFor="name">Nom complet</label>
+            <label htmlFor="name">{t('form.name')}</label>
             <input
               type="text"
               id="name"
@@ -87,12 +24,12 @@ export function ContactPage() {
               value={formData.name}
               onChange={handleChange}
               required
-              placeholder="Votre nom"
+              placeholder={t('form.name_placeholder')}
             />
           </div>
 
           <div>
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">{t('form.email')}</label>
             <input
               type="email"
               id="email"
@@ -100,12 +37,12 @@ export function ContactPage() {
               value={formData.email}
               onChange={handleChange}
               required
-              placeholder="votre.email@exemple.com"
+              placeholder={t('form.email_placeholder')}
             />
           </div>
 
           <div>
-            <label htmlFor="message">Message</label>
+            <label htmlFor="message">{t('form.message')}</label>
             <textarea
               id="message"
               name="message"
@@ -113,40 +50,18 @@ export function ContactPage() {
               onChange={handleChange}
               required
               rows={6}
-              placeholder="Décrivez votre projet ou votre message..."
+              placeholder={t('form.message_placeholder')}
             />
           </div>
 
           <button type="submit" disabled={isSubmitting}>
-            {isSubmitting ? 'Envoi en cours...' : 'Envoyer le message'}
+            {isSubmitting ? t('form.submitting') : t('form.submit')}
           </button>
-
           {submitStatus === 'success' && (
-            <div style={{
-              marginTop: '16px',
-              padding: '16px',
-              backgroundColor: 'rgba(34, 197, 94, 0.2)',
-              border: '1px solid #22c55e',
-              borderRadius: '8px',
-              color: '#22c55e',
-              textAlign: 'center'
-            }}>
-              ✅ Message envoyé avec succès ! Je vous répondrai dans les plus brefs délais.
-            </div>
+            <div className="form-feedback form-feedback--success">{t('feedback.success')}</div>
           )}
-
           {submitStatus === 'error' && (
-            <div style={{
-              marginTop: '16px',
-              padding: '16px',
-              backgroundColor: 'rgba(239, 68, 68, 0.2)',
-              border: '1px solid #ef4444',
-              borderRadius: '8px',
-              color: '#ef4444',
-              textAlign: 'center'
-            }}>
-              ❌ Erreur lors de l'envoi. Veuillez réessayer ou me contacter directement à mlle.lacroixcamille@gmail.com .
-            </div>
+            <div className="form-feedback form-feedback--error">{t('feedback.error')}</div>
           )}
         </form>
       </div>

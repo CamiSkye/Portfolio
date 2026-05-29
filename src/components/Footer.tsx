@@ -1,91 +1,63 @@
 import { Github, Linkedin, Mail } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+import { socialLinks, type SocialLink } from '../data/social';
+import '../styles/footer.css';
+
+const iconMap = {
+  mail: <Mail size={22} />,
+  github: <Github size={22} />,
+  linkedin: <Linkedin size={22} />,
+};
+
+function SocialIcon({ link }: { link: SocialLink }) {
+  return (
+    <a
+      href={link.href}
+      target={link.icon === 'mail' ? undefined : '_blank'}
+      rel={link.icon === 'mail' ? undefined : 'noopener noreferrer'}
+      aria-label={link.label}
+      className="social-icon"
+    >
+      {iconMap[link.icon]}
+    </a>
+  );
+}
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const { t } = useTranslation('common');
+  const navigate = useNavigate();
 
   return (
-    <footer style={{
-      padding: '20px 40px',
-      fontSize: '17px',
-      background: 'rgba(0,0,0,0.5)',
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      flexWrap: 'wrap'
-    }}>
-      {/* Partie gauche */}
-      <div className="footer-left">
-        <p style={{ margin: 0, color: '#ccc' }}>
-          © {currentYear} Camille LACROIX - Développeuse Full-Stack - Tous droits réservés
-        </p>
+    <footer className="footer">
+      <div className="footer-identity">
+        <p className="footer-name">Camille LACROIX</p>
+        <p className="footer-role">{t('footer.role')}</p>
       </div>
 
-      {/* Partie droite */}
-      <div className="footer-right" style={{
-        display: 'flex',
-        gap: '15px',
-        alignItems: 'center',
-        justifyContent: 'center'
-      }}>
+      <div className="footer-separator" />
+
+      <div className="footer-social">
+        {socialLinks.map((link) => (
+          <SocialIcon key={link.label} link={link} />
+        ))}
+      </div>
+
+      <div className="footer-bottom">
+        <p className="footer-copyright">
+          © {currentYear} — {t('footer.rights')}
+        </p>
+        <div className="footer-divider" />
         <a
-          href="mailto:lacrcamille@gmail.com"
-          aria-label="Email"
-          style={{
-            display: 'block',
-            transition: 'transform 0.2s, opacity 0.2s'
+          onClick={(e) => {
+            e.preventDefault();
+            navigate('/legal');
           }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'scale(1.2)';
-            e.currentTarget.style.opacity = '0.8';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'scale(1)';
-            e.currentTarget.style.opacity = '1';
-          }}
+          href="/legal"
+          className="footer-legal"
         >
-          <Mail size={40} style={{ color: '#999' }} />
-        </a>
-        
-        <a
-          href="https://github.com/CamiSkye"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub"
-          style={{
-            display: 'block',
-            transition: 'transform 0.2s, opacity 0.2s'
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'scale(1.2)';
-            e.currentTarget.style.opacity = '0.8';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'scale(1)';
-            e.currentTarget.style.opacity = '1';
-          }}
-        >
-          <Github size={40} style={{ color: '#999' }} />
-        </a>
-        
-        <a
-          href="https://www.linkedin.com/in/lacroix-camille/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-          style={{
-            display: 'block',
-            transition: 'transform 0.2s, opacity 0.2s'
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = 'scale(1.2)';
-            e.currentTarget.style.opacity = '0.8';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = 'scale(1)';
-            e.currentTarget.style.opacity = '1';
-          }}
-        >
-          <Linkedin size={40} style={{ color: '#999' }} />
+          {t('footer.legal')}
         </a>
       </div>
     </footer>

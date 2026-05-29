@@ -1,0 +1,58 @@
+{
+  "about": {
+    "title": "Camille LACROIX",
+    "bio_1": "I am passionate about software development and interface design. I love turning ideas into innovative and intuitive solutions that make users' lives easier. Serious, bold and always eager for challenges, I constantly seek to learn and push my limits through varied projects. Dynamic and committed, I fully invest myself in every mission to deliver concrete results and create real value for the team.",
+    "bio_2": "I enjoy blending technical skills with creativity, keeping up with trends and experimenting with new approaches to design experiences that are functional, aesthetic and impactful. This portfolio reflects my journey, my achievements and my enthusiasm to keep innovating and growing in my field."
+  },
+  "sections": {
+    "dev_projects": "Development Projects",
+    "communication": "Communication Projects",
+    "mini_game": "Mini Game"
+  },
+  "contact_section": {
+    "title": "Contact me",
+    "subtitle": "I'm always open to discussing new projects or internship opportunities!"
+  },
+  "modals": {
+    "poster_title": "Project Poster",
+    "full_description": "Full description",
+    "technologies": "Technologies used"
+  },
+  "projects": {
+    "erinyes_info": {
+      "title": "Les Erinyes",
+      "short": "Awareness website against sexual violence",
+      "full": "Erinyes is an awareness website I designed and developed to fight against sexist and sexual violence (SSV), making educational resources and practical tools accessible to everyone. The goal was to create a clear, engaging and informative platform to understand the scale of violence, know how to act as a witness or victim, and quickly access available support.\n\nI structured the content around recent key figures on SSV, with explanations understandable to a wide audience. The site also includes my e-learning training materials, an interactive violence scale to help identify different degrees of violence, and several visual awareness posters I created myself.\n\nThis project allowed me to combine visual design, pedagogy and web development to offer a useful and accessible platform, while contributing to a major social cause."
+    },
+    "skyndar": {
+      "title": "Skyndar",
+      "short": "Appointment management software",
+      "full": "Skyndar is a software I developed for a company, with a C# / WPF admin application and a PHP / JavaScript client-side website. The goal was to create a complete and intuitive tool for managing appointments, both for users and the administrative team.\n\nI designed the admin interface using MVVM, allowing real-time management of services and client history with automatic database updates. On the client side, I worked on the user journey from booking to confirmation, with a mini-map and automatic email sending.\n\nThis project allowed me to combine back-end and front-end development, UX/UI and database management, while meeting a real business need."
+    },
+    "softrelax": {
+      "title": "Soft Relax",
+      "short": "Showcase website for a wellness company",
+      "full": "Soft Relax is a professional website developed for a company specializing in massages and wellness. It presents all services offered, allows clients to easily get in touch via an integrated form, and offers a soothing visual experience in line with the company's identity.\n\nEach user could create an account to book an appointment, while the administrator also had an account to manage the site content and make modifications as needed.\n\nAs project manager, I was in charge of client relations, wireframe creation, code review, as well as developing the admin section and services page."
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "short": "Portfolio website to showcase my projects",
+      "full": "My portfolio is a showcase of my web development and interactive design skills. It presents all my personal and professional projects, illustrating my mastery of technologies such as React, C#, WPF, PHP/MySQL and my sense of modern and intuitive design.\n\nEach project is described in detail, with interactive demos and screenshots, allowing visitors to understand the technical choices behind each achievement.\n\nAs both developer and project manager of my own portfolio, I designed the architecture, created the wireframes, developed the interactive features, and integrated animations for a smooth and engaging user experience."
+    },
+    "nemesis": {
+      "title": "Nemesis",
+      "short": "Sexist and Sexual Violence, part 1",
+      "full": "This semester, we worked on a deeply human and meaningful project: creating an awareness training on sexist and sexual violence, as part of a CSR initiative. As project manager, I led a dedicated and curious team, while ensuring coordination and overall coherence.\n\nWe conducted in-depth research (readings, testimonials, laws, studies) to understand this complex subject and address it accurately. Our goal: not just to inform, but to raise awareness and spark dialogue within our institution.\n\nThe result: a one-hour training accompanied by a striking poster, the product of many attempts to find the right tone. This initiative had a real impact, and our work is now evolving toward an e-learning version to reach a wider audience."
+    },
+    "erinyes_humain": {
+      "title": "Les Erinyes",
+      "short": "Sexist and Sexual Violence, part 2",
+      "full": "Building on this first phase, we developed two complete e-learning courses, each consisting of five progressive modules. The first covers the basics: essential definitions, key data, legal frameworks and warning signs. The second goes deeper into the professional environment: workplace harassment, hierarchical relationships, company culture and legal obligations.\n\nBeyond the educational modules, our group created a series of animated posters displayed throughout the school to make the subject visible and break the taboo. I also designed an awareness website bringing together resources, interactive tools and practical information.\n\nThis project allowed me to combine research, pedagogy, project management and digital creation, while contributing to tangible change within our institution and beyond."
+    },
+    "shooting_game": {
+      "title": "Shooting Game",
+      "short": "2D arcade shooting game",
+      "full": "A 2D shooting game developed in JavaScript with a CSS graphical interface. The player must face waves of enemies (the crowns) with a scoring system. The game features retro graphics and dynamic gameplay.\n\nThis game was developed as a personal project to explore game mechanics and canvas animation. It includes an optimized collision system, particle effects, and a retro soundtrack. The code is modular and easily extensible to add new enemies or power-ups."
+    }
+  }
+}

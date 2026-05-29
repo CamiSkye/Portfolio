@@ -1,0 +1,53 @@
+{
+  "title": "Mentions légales",
+  "last_updated": "Dernière mise à jour : mai 2026",
+  "sections": {
+    "editor": {
+      "title": "1. Éditeur du site",
+      "content": [
+        "Le présent site est édité par :",
+        "Camille LACROIX",
+        "Email : clacroix@et.esiea.fr",
+        "Étudiante en Bachelor Développement Web et Mobile — ESIEA, Ivry-sur-Seine"
+      ]
+    },
+    "hosting": {
+      "title": "2. Hébergement",
+      "content": [
+        "Ce site est hébergé par :",
+        "Netlify, Inc.",
+        "512 2nd Street, Suite 200, San Francisco, CA 94107, États-Unis",
+        "Site : https://www.netlify.com"
+      ]
+    },
+    "intellectual_property": {
+      "title": "3. Propriété intellectuelle",
+      "content": [
+        "L'ensemble du contenu de ce site (textes, images, projets présentés) est la propriété exclusive de Camille LACROIX, sauf mention contraire.",
+        "Toute reproduction, représentation, modification ou exploitation, totale ou partielle, de ce contenu est interdite sans autorisation préalable."
+      ]
+    },
+    "personal_data": {
+      "title": "4. Données personnelles",
+      "content": [
+        "Ce site ne collecte aucune donnée personnelle à des fins commerciales.",
+        "Le formulaire de contact permet uniquement d'envoyer un message directement à l'éditeur. Les données saisies ne sont pas stockées ni transmises à des tiers.",
+        "Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données en contactant : mlle.lacroixcamille@gmail.com"
+      ]
+    },
+    "cookies": {
+      "title": "5. Cookies",
+      "content": [
+        "Ce site n'utilise pas de cookies de traçage ou publicitaires.",
+        "Des cookies techniques peuvent être utilisés pour le bon fonctionnement du site."
+      ]
+    },
+    "liability": {
+      "title": "6. Responsabilité",
+      "content": [
+        "L'éditeur s'efforce de maintenir les informations de ce site à jour et exactes, mais ne saurait être tenu responsable des erreurs ou omissions.",
+        "Les liens vers des sites tiers sont fournis à titre informatif. L'éditeur n'est pas responsable du contenu de ces sites."
+      ]
+    }
+  }
+}

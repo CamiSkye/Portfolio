@@ -1,0 +1,100 @@
+{
+  "title": "My Resume",
+  "sections": {
+    "experiences": "EXPERIENCES",
+    "formations": "EDUCATION"
+  },
+  "sidebar": {
+    "profile": "Profile",
+    "skills": "Technical Skills",
+    "soft_skills": "Soft Skills",
+    "interests": "Interests"
+  },
+  "print": {
+    "name": "Camille",
+    "lastname": "LACROIX",
+    "subtitle": "3rd year student — Bachelor Web and Mobile Application Developer · Full-Stack Developer",
+    "badge": "⇒ 12-MONTH INTERNSHIP STARTING SEPTEMBER 2026",
+    "intro": "3rd year student in the Bachelor Expert in Computer Science program, I am looking for an apprenticeship in web and mobile development. Committed, autonomous, invested and curious, I adapt quickly and fully invest myself in the projects entrusted to me.",
+    "contacts_title": "Contacts",
+    "contacts": [
+      "✉ clacroix@et.esiea.fr",
+      "🌐 c-lacroix.fr",
+      "in in/lacroix-camille",
+      "📍 Yvelines / Paris"
+    ],
+    "soft_skills_title": "Soft Skills",
+    "soft_skills": ["✓ Leadership", "✓ Organizational skills", "✓ Creativity"],
+    "interests_title": "Interests",
+    "interests": [
+      "✦ Video game development",
+      "✦ Reading / Writing",
+      "✦ Sport: Running",
+      "✦ Greek mythology"
+    ]
+  },
+  "experiences": [
+    {
+      "title": "Intern",
+      "company": "HexoTech",
+      "period": "February 2026 to August 2026",
+      "tasks": [
+        "UI/UX creation for a 3D part visualization application for ArcelorMittal.",
+        "Technical documentation writing (user manual in French and English).",
+        "Training on Artificial Intelligence.",
+        "Learning Python."
+      ],
+      "tags": "Tools: React, ThreeJS"
+    },
+    {
+      "title": "Project Manager - Training on Sexist and Sexual Violence",
+      "company": "ESIEA",
+      "period": "March 2025 to January 2026",
+      "tasks": [
+        "Development of a one-hour in-person awareness training on SSV for all ages.",
+        "Organization of two e-learning training courses.",
+        "Creation of communication and awareness materials:"
+      ],
+      "link": { "href": "https://erinyes.fr", "label": "erinyes.fr" },
+      "tags": "Soft Skills: Team spirit, strategic thinking, assertiveness"
+    },
+    {
+      "title": "Scrum Master - Online appointment booking website",
+      "company": "ESIEA",
+      "period": "March 2025 to July 2025",
+      "tasks": [
+        "Development of a multi-service provider application.",
+        "Web and WPF interface.",
+        "Project with an external client."
+      ],
+      "tags": "Tools: PHP, MySQL, JS, C# and WPF · Soft Skills: Leadership, problem solving, agile methods"
+    }
+  ],
+  "formations": [
+    {
+      "title": "Bachelor's Degree in Web and Mobile Development",
+      "school": "ESIEA — Ivry-sur-Seine",
+      "period": "September 2023 to Present",
+      "tasks": ["Software design and development", "Web development and databases"]
+    }
+  ],
+  "skills": [
+    { "label": "English", "value": "TOEIC 450/990" },
+    { "label": "Frontend", "tags": ["HTML", "CSS", "JS", "React", "TypeScript"] },
+    { "label": "Backend", "tags": ["PHP", "C#", "WPF", "MySQL", "Python"] },
+    { "label": "Learning", "value": "JAVA" },
+    { "label": "Operating Systems", "tags": ["Windows", "Linux"] },
+    { "label": "Tools", "tags": ["Docker", "Grafana"] }
+  ],
+  "soft_skills": ["Agile Methodology", "Leadership", "Creativity", "Organizational skills"],
+  "interests": ["Video game development", "Reading / Writing", "Sport: running", "Greek mythology"],
+  "profile": [
+    { "label": "Email", "display": "clacroix@et.esiea.fr" },
+    {
+      "label": "LinkedIn",
+      "href": "https://linkedin.com/in/lacroix-camille",
+      "display": "in/lacroix-camille"
+    },
+    { "label": "Location", "display": "Yvelines / Paris" }
+  ]
+}

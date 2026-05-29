@@ -1,0 +1,53 @@
+{
+  "title": "Legal Notice",
+  "last_updated": "Last updated: May 2026",
+  "sections": {
+    "editor": {
+      "title": "1. Website Editor",
+      "content": [
+        "This website is published by:",
+        "Camille LACROIX",
+        "Email: clacroix@et.esiea.fr",
+        "Student in Web and Mobile Development Bachelor — ESIEA, Ivry-sur-Seine, France"
+      ]
+    },
+    "hosting": {
+      "title": "2. Hosting",
+      "content": [
+        "This website is hosted by:",
+        "Netlify, Inc.",
+        "512 2nd Street, Suite 200, San Francisco, CA 94107, United States",
+        "Website: https://www.netlify.com"
+      ]
+    },
+    "intellectual_property": {
+      "title": "3. Intellectual Property",
+      "content": [
+        "All content on this website (texts, images, projects) is the exclusive property of Camille LACROIX, unless otherwise stated.",
+        "Any reproduction, representation, modification or exploitation, in whole or in part, of this content is prohibited without prior authorization."
+      ]
+    },
+    "personal_data": {
+      "title": "4. Personal Data",
+      "content": [
+        "This website does not collect any personal data for commercial purposes.",
+        "The contact form only allows sending a message directly to the editor. The data entered is not stored or shared with third parties.",
+        "In accordance with GDPR, you have the right to access, correct and delete your data by contacting: mlle.lacroixcamille@gmail.com"
+      ]
+    },
+    "cookies": {
+      "title": "5. Cookies",
+      "content": [
+        "This website does not use tracking or advertising cookies.",
+        "Technical cookies may be used for the proper functioning of the website."
+      ]
+    },
+    "liability": {
+      "title": "6. Liability",
+      "content": [
+        "The editor strives to keep the information on this website up to date and accurate, but cannot be held responsible for errors or omissions.",
+        "Links to third-party websites are provided for information purposes only. The editor is not responsible for the content of these websites."
+      ]
+    }
+  }
+}
