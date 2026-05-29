@@ -1,3 +1,5 @@
+/* ─── About ──────────────────────────────────────────────────────────────────── */
+
 .about-bio-large {
   font-size: 1.2rem;
   line-height: 1.8;
@@ -26,6 +28,8 @@
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
 }
 
+/* ─── Ghost button ───────────────────────────────────────────────────────────── */
+
 .btn-ghost {
   background: rgba(255, 255, 255, 0.1);
   border: 2px solid rgba(255, 255, 255, 0.3);
@@ -45,6 +49,8 @@
   transform: scale(1.05);
 }
 
+/* ─── Contact section ────────────────────────────────────────────────────────── */
+
 .contact-section {
   text-align: center;
   padding: 80px 20px;
@@ -62,6 +68,8 @@
   max-width: 600px;
   margin: 0 auto 40px;
 }
+
+/* ─── Game modal ─────────────────────────────────────────────────────────────── */
 
 .game-modal-overlay {
   position: fixed;
@@ -104,6 +112,8 @@
   border: none;
 }
 
+/* ─── Dialog glass ───────────────────────────────────────────────────────────── */
+
 .dialog-glass {
   border-radius: 20px !important;
   background: rgba(255, 255, 255, 0.07) !important;
@@ -128,7 +138,6 @@
   overflow: auto;
   padding: 20px;
 }
-
 
 .dialog-description {
   width: 80vw;
@@ -156,12 +165,15 @@
   margin-bottom: 20px;
 }
 
+/* ─── Media modal ────────────────────────────────────────────────────────────── */
+
 .media-item {
   width: 100%;
   height: auto;
   border-radius: 12px;
   display: block;
   margin: 0 auto;
+  object-fit: contain;
 }
 
 .media-nav {
@@ -184,6 +196,8 @@
   right: 0;
 }
 
+/* ─── Description & Poster ───────────────────────────────────────────────────── */
+
 .description-text {
   white-space: pre-line;
 }
@@ -200,14 +214,24 @@
   border-radius: 12px;
 }
 
+/* ─── Responsive mobile ──────────────────────────────────────────────────────── */
+
 @media (max-width: 768px) {
+  .dialog-project,
+  .dialog-description,
   .dialog-poster {
     width: 95vw !important;
     max-width: 95vw !important;
-    padding: 12px;
+    max-height: calc(100vh - 100px) !important;
+    padding: 16px !important;
   }
 
   .poster-image {
     max-height: 80vh;
+  }
+
+  .media-item {
+    max-height: 40vh;
+    object-fit: contain;
   }
 }

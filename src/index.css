@@ -1503,11 +1503,6 @@ footer {
     font-size: 2rem !important;
   }
 
-  [role='dialog'] {
-    max-width: 95vw !important;
-    margin: 10px !important;
-  }
-
   header {
     padding: 10px 20px;
   }
